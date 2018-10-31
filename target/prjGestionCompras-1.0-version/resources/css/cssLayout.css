@@ -1,0 +1,100 @@
+
+#top {
+    position: absolute;
+    background-color: white;
+    color: white;
+    padding: 40px;
+    margin-left: 300px;
+    box-shadow: 20px 2px 20px 2px #AFAFAF;
+  
+}
+
+#bottom {
+    position: relative;
+    background-color: #c2dfef;
+    padding: 5px;
+    margin: 10px 0px 0px 0px;
+}
+
+#left {
+    float: left;
+    background: -webkit-linear-gradient(90deg, #440066 10%, #001028 90%);
+    background-color: #440066;
+    padding: 5px;
+    width: 280px;
+    height: 100vh;
+}
+
+
+#left a{
+    color: white;
+    font-size: 15px;
+}
+
+#right {
+    float: right;
+    background-color: #ece3a5;
+    padding: 5px;
+    width: 150px;
+}
+
+.center_content {
+    position: relative;
+    padding: 5px;
+}
+
+.left_content {
+    padding: 5px;
+    margin-left: 282px;
+    background: gainsboro;
+    height: 100vh;
+}
+
+.right_content {
+    background-color: #dddddd;
+    padding: 5px;
+    margin: 0px 170px 0px 170px;
+}
+
+#top a:link, #top a:visited {
+  color: white;
+  font-weight : bold;
+  text-decoration: none;
+}
+
+#top a:link:hover, #top a:visited:hover  {
+  color: black;
+  font-weight : bold;
+  text-decoration : underline;
+}
+
+
+.btn-azul{
+    background: #036fab;
+}
+
+.btn-gris{
+    background: #AFAFAF;
+}
+
+.btn-verde{
+    background: yellowgreen;
+}
+
+.btn-rojo{
+    background: red;
+}
+
+.label{
+    display: block;
+    font-size: 16px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+
+.crud{
+    display: block;
+    margin: 0 auto;
+    width: 85%;
+}
