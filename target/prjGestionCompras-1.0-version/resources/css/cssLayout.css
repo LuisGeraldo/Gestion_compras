@@ -1,12 +1,13 @@
-
 #top {
-    position: absolute;
+    left: 0;
+    right: 0;
+    position: fixed;
+    width: 100%;
     background-color: white;
     color: white;
     padding: 40px;
-    margin-left: 300px;
-    box-shadow: 20px 2px 20px 2px #AFAFAF;
-  
+    
+/*    box-shadow: 40px 1px 20px 1px  #4e6a71;*/
 }
 
 #bottom {
@@ -17,18 +18,48 @@
 }
 
 #left {
+    position: relative;
     float: left;
-    background: -webkit-linear-gradient(90deg, #440066 10%, #001028 90%);
-    background-color: #440066;
-    padding: 5px;
-    width: 280px;
+    background-color: white;
+    width: 300px;
     height: 100vh;
+    position: fixed;
+    box-shadow: 5px 1px 30px 1px #AFAFAF;
+    overflow: auto;   
+/*    transform: translateX(-100%);*/
+    transition: 0.2s;
 }
 
 
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {     
+      background-color:  #dddddd;
+} 
+ 
+::-webkit-scrollbar-thumb {
+      background-color: #3a4f54; 
+} 
+
+.option{
+  
+    position: relative;
+    top: 250px;
+}
+
 #left a{
-    color: white;
+    display: block;
+    color: #000000;
     font-size: 15px;
+    margin-left: 20px;
+    padding: 5px;
+}
+
+#left a:hover{
+   background: #dddddd;
+   margin-right: 15px;   
 }
 
 #right {
@@ -45,8 +76,9 @@
 
 .left_content {
     padding: 5px;
-    margin-left: 282px;
-    background: gainsboro;
+    padding-top: 100px;
+    margin-left: 350px;
+    margin-right: 50px;
     height: 100vh;
 }
 
@@ -94,7 +126,83 @@
 
 
 .crud{
+    padding: 10px;
     display: block;
     margin: 0 auto;
     width: 85%;
 }
+
+.panel-info{
+    color: white;
+    margin: 0px !important;
+    padding: 5px !important;
+    margin-top: 0;
+    background: url(../img/im.jpg);
+    background-size: cover;
+    height: 240px;
+    left: 0;
+    position: fixed;
+    width: 300px; 
+    z-index: 1;
+}
+
+.panel-info h1{
+    font-size: 25px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.panel-info img{
+    display: block;
+    border-radius: 50px;
+    margin-left: 25px;
+    width: 60px;
+    margin-bottom: 10px;
+}
+
+.user-name{
+    display: block;
+    font-size: 18px;
+    margin-left: 25px;   
+    font-weight: bold;
+}
+
+.user-email{
+    font-size: 10px;
+    font-size: 15px;
+    margin-left: 25px; 
+}
+
+.cerrar-session{
+    float: right;
+    color: white !important;
+    
+}
+
+.cerrar-session:hover{
+    background: #036fab;
+}
+
+
+.combo{
+    border: none;
+    border-bottom:1px solid #AFAFAF;
+}
+
+.card-imag img{
+    margin: 0 auto;
+    width: 200px;
+    display: block;
+}
+
+.card-imag label{
+    display: block;
+    font-size: 20px;
+    text-align: center;
+}
+
+.card-imag{
+    position: relative;
+    width: 100px;
+}
+

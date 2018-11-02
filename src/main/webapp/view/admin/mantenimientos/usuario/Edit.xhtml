@@ -7,34 +7,40 @@
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
-            <h:outputText value="#{bundle.EditUsuarioTitle}"></h:outputText>
+            <h:outputText class="crud" value="#{bundle.EditUsuarioTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
             <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.EditUsuarioLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{usuarioController.selected.id}" title="#{bundle.EditUsuarioTitle_id}" required="true" requiredMessage="#{bundle.EditUsuarioRequiredMessage_id}"/>
-                    <h:outputLabel value="#{bundle.EditUsuarioLabel_cedula}" for="cedula" />
-                    <h:inputText id="cedula" value="#{usuarioController.selected.cedula}" title="#{bundle.EditUsuarioTitle_cedula}" required="true" requiredMessage="#{bundle.EditUsuarioRequiredMessage_cedula}"/>
-                    <h:outputLabel value="#{bundle.EditUsuarioLabel_password}" for="password" />
-                    <h:inputText id="password" value="#{usuarioController.selected.password}" title="#{bundle.EditUsuarioTitle_password}" required="true" requiredMessage="#{bundle.EditUsuarioRequiredMessage_password}"/>
-                    <h:outputLabel value="#{bundle.EditUsuarioLabel_idTipoUsuario}" for="idTipoUsuario" />
-                    <h:selectOneMenu id="idTipoUsuario" value="#{usuarioController.selected.idTipoUsuario}" title="#{bundle.EditUsuarioTitle_idTipoUsuario}" required="true" requiredMessage="#{bundle.EditUsuarioRequiredMessage_idTipoUsuario}">
+                <section class="crud">
+                    <div class="input-field">
+                        <h:outputLabel value="#{bundle.EditUsuarioLabel_cedula}" for="cedula" />
+                        <h:inputText id="cedula" value="#{usuarioController.selected.cedula}" title="#{bundle.EditUsuarioTitle_cedula}" required="true" requiredMessage="#{bundle.EditUsuarioRequiredMessage_cedula}"/>
+                    </div>
+                    
+                    <div class="input-field">
+                        <h:outputLabel value="#{bundle.EditUsuarioLabel_password}" for="password" />
+                        <h:inputText id="password" value="#{usuarioController.selected.password}" title="#{bundle.EditUsuarioTitle_password}" required="true" requiredMessage="#{bundle.EditUsuarioRequiredMessage_password}"/>
+                    </div>
+                    
+                    <h:outputLabel class="label" value="#{bundle.EditUsuarioLabel_idTipoUsuario}" for="idTipoUsuario" />
+                    <h:selectOneMenu id="idTipoUsuario" class="browser-default" value="#{usuarioController.selected.idTipoUsuario}" title="#{bundle.EditUsuarioTitle_idTipoUsuario}" required="true" requiredMessage="#{bundle.EditUsuarioRequiredMessage_idTipoUsuario}">
                         <f:selectItems value="#{tipoUsuarioController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
-                </h:panelGrid>
-                <h:commandLink action="#{usuarioController.update}" value="#{bundle.EditUsuarioSaveLink}"/>
                 <br />
                 <br />
-                <h:link outcome="View" value="#{bundle.EditUsuarioViewLink}"/>
-                <br />
-                <h:commandLink action="#{usuarioController.prepareList}" value="#{bundle.EditUsuarioShowAllLink}" immediate="true"/>
+                <h:commandLink  class="btn btn-azul"  action="#{usuarioController.update}" value="#{bundle.EditUsuarioSaveLink}"/>
                 <br />
                 <br />
-                <h:link outcome="/index" value="#{bundle.EditUsuarioIndexLink}" />
+                <h:link class="btn btn-verde" outcome="View" value="#{bundle.EditUsuarioViewLink}"/>
+                <br />
+                <h:commandLink class="btn" action="#{usuarioController.prepareList}" value="#{bundle.EditUsuarioShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link class="btn btn-gris" outcome="List" value="#{bundle.EditUsuarioIndexLink}" />
+                </section>
             </h:form>
         </ui:define>
     </ui:composition>

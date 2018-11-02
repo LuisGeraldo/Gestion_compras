@@ -7,31 +7,34 @@
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
-            <h:outputText value="#{bundle.CreateUnidadMedidaTitle}"></h:outputText>
+            <h:outputText class="crud" value="#{bundle.CreateUnidadMedidaTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
             <h:panelGroup id="messagePanel" layout="block">
-                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                <h:messages class="crud" errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
             <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreateUnidadMedidaLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{unidadMedidaController.selected.id}" title="#{bundle.CreateUnidadMedidaTitle_id}" required="true" requiredMessage="#{bundle.CreateUnidadMedidaRequiredMessage_id}"/>
+                <section class="crud">
+                   <div class="input-field">
                     <h:outputLabel value="#{bundle.CreateUnidadMedidaLabel_nombre}" for="nombre" />
                     <h:inputText id="nombre" value="#{unidadMedidaController.selected.nombre}" title="#{bundle.CreateUnidadMedidaTitle_nombre}" required="true" requiredMessage="#{bundle.CreateUnidadMedidaRequiredMessage_nombre}"/>
-                    <h:outputLabel value="#{bundle.CreateUnidadMedidaLabel_idEstado}" for="idEstado" />
-                    <h:selectOneMenu id="idEstado" value="#{unidadMedidaController.selected.idEstado}" title="#{bundle.CreateUnidadMedidaTitle_idEstado}" required="true" requiredMessage="#{bundle.CreateUnidadMedidaRequiredMessage_idEstado}">
+                   </div>
+                    
+                  
+                    <h:outputLabel class="label" value="#{bundle.CreateUnidadMedidaLabel_idEstado}" for="idEstado" />
+                    <h:selectOneMenu id="idEstado" class="browser-default combo" value="#{unidadMedidaController.selected.idEstado}" title="#{bundle.CreateUnidadMedidaTitle_idEstado}" required="true" requiredMessage="#{bundle.CreateUnidadMedidaRequiredMessage_idEstado}">
                         <f:selectItems value="#{estadoController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
-                </h:panelGrid>
+               
                 <br />
-                <h:commandLink action="#{unidadMedidaController.create}" value="#{bundle.CreateUnidadMedidaSaveLink}" />
-                <br />
-                <br />
-                <h:commandLink action="#{unidadMedidaController.prepareList}" value="#{bundle.CreateUnidadMedidaShowAllLink}" immediate="true"/>
+                <h:commandLink class="btn btn-verde" action="#{unidadMedidaController.create}" value="#{bundle.CreateUnidadMedidaSaveLink}" />
                 <br />
                 <br />
-                <h:link outcome="/index" value="#{bundle.CreateUnidadMedidaIndexLink}"/>
+                <h:commandLink class="btn btn-azul" action="#{unidadMedidaController.prepareList}" value="#{bundle.CreateUnidadMedidaShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link class="btn btn-gris" outcome="List" value="#{bundle.CreateUnidadMedidaIndexLink}"/>
+                </section>
             </h:form>
         </ui:define>
     </ui:composition>

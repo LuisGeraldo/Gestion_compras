@@ -10,7 +10,7 @@
             <h:outputText class="crud" value="#{bundle.CreateDepartamentoTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:panelGroup id="messagePanel" layout="block">
+            <h:panelGroup class="crud" id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
             <h:form>
@@ -21,7 +21,7 @@
                     </div>
                     
                     <h:outputLabel class="label" value="#{bundle.CreateDepartamentoLabel_idEstado}" for="idEstado" />
-                    <h:selectOneMenu class="browser-default" id="idEstado" value="#{departamentoController.selected.idEstado}" title="#{bundle.CreateDepartamentoTitle_idEstado}" required="true" requiredMessage="#{bundle.CreateDepartamentoRequiredMessage_idEstado}">
+                    <h:selectOneMenu class="browser-default combo" id="idEstado" value="#{departamentoController.selected.idEstado}" title="#{bundle.CreateDepartamentoTitle_idEstado}" required="true" requiredMessage="#{bundle.CreateDepartamentoRequiredMessage_idEstado}">
                         <f:selectItems value="#{estadoController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
                

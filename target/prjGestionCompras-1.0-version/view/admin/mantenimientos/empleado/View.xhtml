@@ -7,38 +7,37 @@
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
-            <h:outputText value="#{bundle.ViewEmpleadoTitle}"></h:outputText>
+            <h:outputText class="crud" value="#{bundle.ViewEmpleadoTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
             <h:panelGroup id="messagePanel" layout="block">
-                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                <h:messages class="crud" errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
             <h:form>
+                <section class="crud">
                 <h:panelGrid columns="2">
-                    <h:outputText value="#{bundle.ViewEmpleadoLabel_id}"/>
-                    <h:outputText value="#{empleadoController.selected.id}" title="#{bundle.ViewEmpleadoTitle_id}"/>
                     <h:outputText value="#{bundle.ViewEmpleadoLabel_nombre}"/>
                     <h:outputText value="#{empleadoController.selected.nombre}" title="#{bundle.ViewEmpleadoTitle_nombre}"/>
                     <h:outputText value="#{bundle.ViewEmpleadoLabel_cedula}"/>
                     <h:outputText value="#{empleadoController.selected.cedula}" title="#{bundle.ViewEmpleadoTitle_cedula}"/>
                     <h:outputText value="#{bundle.ViewEmpleadoLabel_idEmpleado}"/>
-                    <h:outputText value="#{empleadoController.selected.idEmpleado}" title="#{bundle.ViewEmpleadoTitle_idEmpleado}"/>
+                    <h:outputText value="#{empleadoController.selected.idEmpleado.nombre}" title="#{bundle.ViewEmpleadoTitle_idEmpleado}"/>
                     <h:outputText value="#{bundle.ViewEmpleadoLabel_idEstado}"/>
-                    <h:outputText value="#{empleadoController.selected.idEstado}" title="#{bundle.ViewEmpleadoTitle_idEstado}"/>
+                    <h:outputText value="#{empleadoController.selected.idEstado.nombre}" title="#{bundle.ViewEmpleadoTitle_idEstado}"/>
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{empleadoController.destroyAndView}" value="#{bundle.ViewEmpleadoDestroyLink}"/>
+                <h:commandLink class="btn btn-rojo" action="#{empleadoController.destroyAndView}" value="#{bundle.ViewEmpleadoDestroyLink}"/>
                 <br />
                 <br />
-                <h:link outcome="Edit" value="#{bundle.ViewEmpleadoEditLink}"/>
+                <h:link  class="btn btn-verde" outcome="Edit" value="#{bundle.ViewEmpleadoEditLink}"/>
                 <br />
-                <h:commandLink action="#{empleadoController.prepareCreate}" value="#{bundle.ViewEmpleadoCreateLink}" />
+                <h:commandLink class="btn btn-azul" action="#{empleadoController.prepareCreate}" value="#{bundle.ViewEmpleadoCreateLink}" />
                 <br />
-                <h:commandLink action="#{empleadoController.prepareList}" value="#{bundle.ViewEmpleadoShowAllLink}"/>
+                <h:commandLink class="btn" action="#{empleadoController.prepareList}" value="#{bundle.ViewEmpleadoShowAllLink}"/>
                 <br />
                 <br />
-                <h:link outcome="/index" value="#{bundle.ViewEmpleadoIndexLink}"/>
-
+                <h:link class="btn btn-gris" outcome="List" value="#{bundle.ViewEmpleadoIndexLink}"/>
+                </section>
             </h:form>
         </ui:define>
     </ui:composition>

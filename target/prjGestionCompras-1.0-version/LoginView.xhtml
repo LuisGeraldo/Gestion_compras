@@ -1,7 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
         <link rel="stylesheet" href="resources/css/form-estilos.css"/>
@@ -17,7 +18,10 @@
                    <br/> 
                     
                    <div class="input-field col s6">
-                        <h:inputText id="cedula" value="#{loginController.usuario.cedula}" class="only-number" maxlength="11" required="true" requiredMessage="Campo requerido"/>
+                       <h:inputText id="cedula" value="#{loginController.usuario.cedula}" class="only-number" maxlength="11" validator="#{componentValidator.validateCedula}" required="true" requiredMessage="Campo requerido">
+                           <f:ajax event="blur" execute="@this" render="cedulaError"/>
+                       </h:inputText>
+                       
                         <label for="cedula">Cedula</label>
                         <h:messages errorStyle="color: red;" for="cedula"/>
                     </div>

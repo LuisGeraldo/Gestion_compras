@@ -19,13 +19,8 @@
                     <h:outputText value="#{empleadoController.pagination.pageFirstItem + 1}..#{empleadoController.pagination.pageLastItem + 1}/#{empleadoController.pagination.itemsCount}"/>&nbsp;
                     <h:commandLink action="#{empleadoController.previous}" value="#{bundle.Previous} #{empleadoController.pagination.pageSize}" rendered="#{empleadoController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{empleadoController.next}" value="#{bundle.Next} #{empleadoController.pagination.pageSize}" rendered="#{empleadoController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{empleadoController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListEmpleadoTitle_id}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.id}"/>
-                        </h:column>
+                    <h:dataTable value="#{empleadoController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 0px">
+                       
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListEmpleadoTitle_nombre}"/>
@@ -40,33 +35,32 @@
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListEmpleadoTitle_idEmpleado}"/>
+                                <h:outputText value="Departamento"/>
                             </f:facet>
-                            <h:outputText value="#{item.idEmpleado}"/>
+                            <h:outputText value="#{item.idEmpleado.nombre}"/>
                         </h:column>
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListEmpleadoTitle_idEstado}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idEstado}"/>
+                            <h:outputText value="#{item.idEstado.nombre}"/>
                         </h:column>
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:commandLink action="#{empleadoController.prepareView}" value="#{bundle.ListEmpleadoViewLink}"/>
+                            <h:commandLink class="btn btn-verde" action="#{empleadoController.prepareView}" value="#{bundle.ListEmpleadoViewLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{empleadoController.prepareEdit}" value="#{bundle.ListEmpleadoEditLink}"/>
+                            <h:commandLink class="btn btn-azul" action="#{empleadoController.prepareEdit}" value="#{bundle.ListEmpleadoEditLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{empleadoController.destroy}" value="#{bundle.ListEmpleadoDestroyLink}"/>
+                            <h:commandLink class="btn btn-rojo" action="#{empleadoController.destroy}" value="#{bundle.ListEmpleadoDestroyLink}"/>
                         </h:column>
                     </h:dataTable>
                 </h:panelGroup>
                 <br />
-                <h:commandLink action="#{empleadoController.prepareCreate}" value="#{bundle.ListEmpleadoCreateLink}"/>
+                <h:commandLink class="btn btn-verde" action="#{empleadoController.prepareCreate}" value="#{bundle.ListEmpleadoCreateLink}"/>
                 <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.ListEmpleadoIndexLink}"/>
+                
             </h:form>
         </ui:define>
     </ui:composition>

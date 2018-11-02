@@ -54,7 +54,7 @@ public class LoginController implements Serializable{
             
             switch(user.getIdTipoUsuario().getDescripcion()){
                 case "ADMIN": 
-                    context.getApplication().getNavigationHandler().handleNavigation(context, null, "view/admin/mantenimientos/Inicio/indexAdmin.xhtml");                
+                    context.getExternalContext().redirect("view/admin/mantenimientos/Inicio/indexAdmin.xhtml");
                     context.getExternalContext().getSessionMap().put("usuario", user);
                    
                     break;

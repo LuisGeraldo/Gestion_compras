@@ -10,7 +10,7 @@
             <h:outputText class="crud" value="#{bundle.EditArticuloTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:panelGroup id="messagePanel" layout="block">
+            <h:panelGroup class="crud" id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
             
@@ -22,18 +22,18 @@
                     </div>
                     
                     <h:outputLabel class="label" value="#{bundle.EditArticuloLabel_idEstado}" for="idEstado" />
-                    <h:selectOneMenu class="browser-default" id="idEstado" value="#{articuloController.selected.idEstado}" title="#{bundle.EditArticuloTitle_idEstado}" required="true" requiredMessage="#{bundle.EditArticuloRequiredMessage_idEstado}">
+                    <h:selectOneMenu class="browser-default combo" id="idEstado" value="#{articuloController.selected.idEstado}" title="#{bundle.EditArticuloTitle_idEstado}" required="true" requiredMessage="#{bundle.EditArticuloRequiredMessage_idEstado}">
                         <f:selectItems value="#{estadoController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
                     
                     
                     <h:outputLabel class="label" value="#{bundle.EditArticuloLabel_idMarca}" for="idMarca" />
-                    <h:selectOneMenu class="browser-default" id="idMarca" value="#{articuloController.selected.idMarca}" title="#{bundle.EditArticuloTitle_idMarca}" required="true" requiredMessage="#{bundle.EditArticuloRequiredMessage_idMarca}">
+                    <h:selectOneMenu class="browser-default combo" id="idMarca" value="#{articuloController.selected.idMarca}" title="#{bundle.EditArticuloTitle_idMarca}" required="true" requiredMessage="#{bundle.EditArticuloRequiredMessage_idMarca}">
                         <f:selectItems value="#{marcaController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
                     
                     <h:outputLabel class="label" value="#{bundle.EditArticuloLabel_idUnidadMedida}" for="idUnidadMedida" />
-                    <h:selectOneMenu class="browser-default" id="idUnidadMedida" value="#{articuloController.selected.idUnidadMedida}" title="#{bundle.EditArticuloTitle_idUnidadMedida}" required="true" requiredMessage="#{bundle.EditArticuloRequiredMessage_idUnidadMedida}">
+                    <h:selectOneMenu class="browser-default combo" id="idUnidadMedida" value="#{articuloController.selected.idUnidadMedida}" title="#{bundle.EditArticuloTitle_idUnidadMedida}" required="true" requiredMessage="#{bundle.EditArticuloRequiredMessage_idUnidadMedida}">
                         <f:selectItems value="#{unidadMedidaController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
                 <br />

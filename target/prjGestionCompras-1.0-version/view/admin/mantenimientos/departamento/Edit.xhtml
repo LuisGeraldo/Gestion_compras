@@ -10,18 +10,18 @@
             <h:outputText class="crud" value="#{bundle.EditDepartamentoTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:panelGroup id="messagePanel" layout="block">
+            <h:panelGroup class="crud" id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
             <h:form>
                 <section class="crud">
                     <div class="input-field">
-                    <h:outputLabel value="#{bundle.EditDepartamentoLabel_nombre}" for="nombre" />
-                    <h:inputText class="only-letter" id="nombre" value="#{departamentoController.selected.nombre}" title="#{bundle.EditDepartamentoTitle_nombre}" required="true" requiredMessage="#{bundle.EditDepartamentoRequiredMessage_nombre}"/>
+                        <h:outputLabel value="#{bundle.EditDepartamentoLabel_nombre}" for="nombre" />
+                        <h:inputText class="only-letter" id="nombre" value="#{departamentoController.selected.nombre}" title="#{bundle.EditDepartamentoTitle_nombre}" required="true" requiredMessage="#{bundle.EditDepartamentoRequiredMessage_nombre}"/>
                     </div>
                     
                     <h:outputLabel class="label" value="#{bundle.EditDepartamentoLabel_idEstado}" for="idEstado" />
-                    <h:selectOneMenu class="browser-default" id="idEstado" value="#{departamentoController.selected.idEstado}" title="#{bundle.EditDepartamentoTitle_idEstado}" required="true" requiredMessage="#{bundle.EditDepartamentoRequiredMessage_idEstado}">
+                    <h:selectOneMenu class="browser-default combo" id="idEstado" value="#{departamentoController.selected.idEstado}" title="#{bundle.EditDepartamentoTitle_idEstado}" required="true" requiredMessage="#{bundle.EditDepartamentoRequiredMessage_idEstado}">
                         <f:selectItems value="#{estadoController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
                 <br />

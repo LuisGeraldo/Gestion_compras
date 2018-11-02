@@ -19,4 +19,11 @@ $(document).ready(function (){
           $('.only-number').on('input', function () {
                   this.value = this.value.replace(/[^0-9]/g, '');
             });  
+            
+            
+           $('#menu').click(function (){
+               $('#left').css({'background': 'red'});
+               
+               
+           });
 });

@@ -19,13 +19,8 @@
                     <h:outputText value="#{unidadMedidaController.pagination.pageFirstItem + 1}..#{unidadMedidaController.pagination.pageLastItem + 1}/#{unidadMedidaController.pagination.itemsCount}"/>&nbsp;
                     <h:commandLink action="#{unidadMedidaController.previous}" value="#{bundle.Previous} #{unidadMedidaController.pagination.pageSize}" rendered="#{unidadMedidaController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{unidadMedidaController.next}" value="#{bundle.Next} #{unidadMedidaController.pagination.pageSize}" rendered="#{unidadMedidaController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{unidadMedidaController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListUnidadMedidaTitle_id}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.id}"/>
-                        </h:column>
+                    <h:dataTable value="#{unidadMedidaController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 0px">
+                       
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListUnidadMedidaTitle_nombre}"/>
@@ -36,26 +31,23 @@
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListUnidadMedidaTitle_idEstado}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idEstado}"/>
+                            <h:outputText value="#{item.idEstado.nombre}"/>
                         </h:column>
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:commandLink action="#{unidadMedidaController.prepareView}" value="#{bundle.ListUnidadMedidaViewLink}"/>
+                            <h:commandLink class="btn btn-verde" action="#{unidadMedidaController.prepareView}" value="#{bundle.ListUnidadMedidaViewLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{unidadMedidaController.prepareEdit}" value="#{bundle.ListUnidadMedidaEditLink}"/>
+                            <h:commandLink class="btn btn-azul" action="#{unidadMedidaController.prepareEdit}" value="#{bundle.ListUnidadMedidaEditLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{unidadMedidaController.destroy}" value="#{bundle.ListUnidadMedidaDestroyLink}"/>
+                            <h:commandLink class="btn btn-rojo" action="#{unidadMedidaController.destroy}" value="#{bundle.ListUnidadMedidaDestroyLink}"/>
                         </h:column>
                     </h:dataTable>
                 </h:panelGroup>
                 <br />
-                <h:commandLink action="#{unidadMedidaController.prepareCreate}" value="#{bundle.ListUnidadMedidaCreateLink}"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.ListUnidadMedidaIndexLink}"/>
-            </h:form>
+                <h:commandLink class="btn btn-verde" action="#{unidadMedidaController.prepareCreate}" value="#{bundle.ListUnidadMedidaCreateLink}"/>
+              </h:form>
         </ui:define>
     </ui:composition>
 

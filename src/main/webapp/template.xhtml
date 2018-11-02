@@ -2,67 +2,92 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<!--        <h:outputStylesheet name="css/default.css"/>-->
         <h:outputStylesheet name="css/cssLayout.css"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
         <title>Facelets Template</title>
+        <f:event type="preRenderView" listener="#{sessionInf.sessionInfo()}"/>
+        <f:event type="preRenderView" listener="#{controlAccesoClass.onlyAdmin()}"/>
+    
+    
     </h:head>
 
     <h:body>
 
 
         <div id="top" class="top">
-            <ui:insert name="top">Top</ui:insert>
+            <ui:insert class="nav" name="top">
+                <h:form>
+                    <h:commandLink styleClass="btn cerrar-session btn-gris" action="#{controlAccesoClass.cerraSesion()}"  value="Cerrar sesion"/>
+                </h:form>
+            </ui:insert>
         </div>
+        
         <div>
-            
             <div id="left">
                 <ui:insert name="left">
+                    
                  <section class="panel">
-                    <br />
-                    <h:link outcome="/view/admin/mantenimientos/Inicio/indexAdmin" value="Inicio"/>
-                    <br />
-                    <h:link outcome="/view/admin/mantenimientos/articulo/List" value="Articulos"/>
-                    <br />
-                    <h:link outcome="/view/admin/mantenimientos/departamento/List" value="Departamentos"/>
-                    <br />
-                    <h:link outcome="/view/admin/mantenimientos/empleado/List" value="Empleados"/>
-                    <br />
-                    <h:link outcome="/view/admin/mantenimientos/estado/List" value="Estados"/>
-                    <br />
-                    <h:link outcome="/view/admin/mantenimientos/inventario/List" value="Inventario"/>
-                    <br />
-                    <h:link outcome="/view/admin/mantenimientos/marca/List" value="Marcas"/>
-                    <br />
-                    <h:link outcome="/view/admin/mantenimientos/ordenCompra/List" value="Orden de compra"/>
-                    <br />
-                    <h:link outcome="/view/admin/mantenimientos/proveedor/List" value="Proveedor"/>
-                    <br />
-                    <h:link outcome="/view/admin/mantenimientos/solicitud/List" value="Solicitud"/>
-                    <br />
-                    <h:link outcome="/view/admin/mantenimientos/solicitudArticulo/List" value="Solicitud Articulo"/>
-                    <br />
-                    <h:link outcome="/view/admin/mantenimientos/unidadMedida/List" value="Unidad Medida"/>
-                    <br />
-                    <h:link outcome="/view/admin/mantenimientos/tipoUsuario/List" value="Tipo Usuario"/>
-                    <br />
-                    <h:link outcome="/view/admin/mantenimientos/usuario/List" value="Usuario"/>
-                  </section>
+                     <article class="panel-info">
+                         <h1>Gestion de compras</h1>
+                         <img src="../../../../resources/img/user.png" alt="imagen usuario"/>
+                         <h:outputText styleClass="user-name" value="#{sessionInf.usuario.idTipoUsuario.descripcion}"/>
+                         <h:outputText styleClass="user-email" value="#{sessionInf.usuario.cedula}"/>
+                     </article>
+                     
+                     <article class="option">
+                        <br />
+                        <h:link outcome="/view/admin/mantenimientos/Inicio/indexAdmin" value="Inicio"/>
+                        <br />
+                        <h:link outcome="/view/admin/mantenimientos/articulo/List" value="Articulos"/>
+                        <br />
+                        <h:link outcome="/view/admin/mantenimientos/departamento/List" value="Departamentos"/>
+                        <br />
+                        <h:link outcome="/view/admin/mantenimientos/empleado/List" value="Empleados"/>
+                        <br />
+
+                        <h:link outcome="/view/admin/mantenimientos/estado/List" value="Estados"/>
+                        <br />
+                        <h:link outcome="/view/admin/mantenimientos/inventario/List" value="Inventario"/>
+                        <br />
+                        <h:link outcome="/view/admin/mantenimientos/marca/List" value="Marcas"/>
+                        <br />
+                        <h:link outcome="/view/admin/mantenimientos/ordenCompra/List" value="Orden de compra"/>
+                        <br />
+                        <h:link outcome="/view/admin/mantenimientos/proveedor/List" value="Proveedor"/>
+                        <br />
+                        <h:link outcome="/view/admin/mantenimientos/solicitud/List" value="Solicitud"/>
+                        <br />
+                        <h:link outcome="/view/admin/mantenimientos/solicitudArticulo/List" value="Solicitud Articulo"/>
+                        <br />
+                        <h:link outcome="/view/admin/mantenimientos/unidadMedida/List" value="Unidad Medida"/>
+                        <br />
+                        <h:link outcome="/view/admin/mantenimientos/tipoUsuario/List" value="Tipo Usuario"/>
+                        <br />
+                        <h:link outcome="/view/admin/mantenimientos/usuario/List" value="Usuario"/>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                     </article>
+                 </section>
                 </ui:insert>
           
             </div>
             
             <div id="content" class="left_content">
                 <h1><ui:insert name="title"> </ui:insert></h1>
+                
                 <ui:insert name="body">Default Body</ui:insert>
             </div>
         </div>  
     </h:body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"/>
     <script type="text/javascript" src="../../../../resources/js/validations.js"/>
 </html>

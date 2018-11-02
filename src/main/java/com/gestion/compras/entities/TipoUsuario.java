@@ -101,7 +101,6 @@ public class TipoUsuario implements Serializable {
 
     @Override
     public String toString() {
-        return "com.gestion.compras.entities.TipoUsuario[ id=" + id + " ]";
+        return descripcion;
     }
-    
 }
