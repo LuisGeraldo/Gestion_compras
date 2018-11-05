@@ -9,11 +9,11 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <h:outputStylesheet name="css/cssLayout.css"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
-        <title>Facelets Template</title>
+        <title>Gestion de compras | Administrador</title>
         <f:event type="preRenderView" listener="#{sessionInf.sessionInfo()}"/>
         <f:event type="preRenderView" listener="#{controlAccesoClass.onlyAdmin()}"/>
     
-    
+  
     </h:head>
 
     <h:body>
@@ -34,7 +34,7 @@
                  <section class="panel">
                      <article class="panel-info">
                          <h1>Gestion de compras</h1>
-                         <img src="../../../../resources/img/user.png" alt="imagen usuario"/>
+                         <img src="../../../../resources/img/user_img.png" alt="imagen usuario"/>
                          <h:outputText styleClass="user-name" value="#{sessionInf.usuario.idTipoUsuario.descripcion}"/>
                          <h:outputText styleClass="user-email" value="#{sessionInf.usuario.cedula}"/>
                      </article>
