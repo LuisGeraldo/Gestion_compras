@@ -36,6 +36,7 @@
 /home/luis/NetBeansProjects/prjGestionCompras/src/main/java/com/gestion/compras/controller/UnidadMedidaController.java
 /home/luis/NetBeansProjects/prjGestionCompras/src/main/java/com/gestion/compras/controller/SessionInf.java
 /home/luis/NetBeansProjects/prjGestionCompras/src/main/java/com/gestion/compras/controller/OrdenSolicitudController.java
+/home/luis/NetBeansProjects/prjGestionCompras/src/main/java/com/gestion/compras/controller/SolicituArticulo.java
 /home/luis/NetBeansProjects/prjGestionCompras/src/main/java/com/gestion/compras/controller/SolicitudController.java
 /home/luis/NetBeansProjects/prjGestionCompras/src/main/java/com/gestion/compras/entities/Proveedor.java
 /home/luis/NetBeansProjects/prjGestionCompras/src/main/java/com/gestion/compras/ejb/SolicitudFacade.java
