@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
+        <link rel="stylesheet" href="resources/css/form-estilos.css"/>
+        <title>Sign In</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <section class="form">
+                <center><h1>Iniciar sesion</h1></center>
+                
+                <fieldset>   
+                   <center><h:messages errorStyle="color: red; font-size: 20px;"  globalOnly="true"/></center>
+                   <br/> 
+                    
+                   <div class="input-field col s6">
+                       <h:inputText id="cedula" value="#{loginController.usuario.cedula}" class="only-number" maxlength="11" validator="#{componentValidator.validateCedula}" required="true" requiredMessage="Campo requerido">
+                           <f:ajax event="blur" execute="@this" render="cedulaError"/>
+                       </h:inputText>
+                       
+                        <label for="cedula">Cedula</label>
+                        <h:messages errorStyle="color: red;" for="cedula"/>
+                    </div>
+   
+                    <div class="input-field col s6">
+                        <h:inputSecret id="password"  value="#{loginController.usuario.password}" maxlength="50" required="true" requiredMessage="Campo requerido" />
+                        <label for="password">Password</label>
+                        <h:messages errorStyle="color: red;" for="password"/>
+                    </div>
+                   
+                        <h:commandButton class="waves-effect waves-light btn btn-login" actionListener="#{loginController.iniciarSesion()}" value="Iniciar sesion" />    
+                </fieldset>
+            </section>
+        </h:form>
+    </h:body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type="text/javascript" src="resources/js/validations.js"/>
+</html>
+

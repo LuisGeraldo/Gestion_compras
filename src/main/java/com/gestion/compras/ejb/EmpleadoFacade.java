@@ -6,9 +6,12 @@
 package com.gestion.compras.ejb;
 
 import com.gestion.compras.entities.Empleado;
+import com.gestion.compras.entities.Usuario;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -29,4 +32,21 @@ public class EmpleadoFacade extends AbstractFacade<Empleado> {
         super(Empleado.class);
     }
     
+    public Empleado empleadoWithCedula(Usuario usuario){
+        Empleado empleado = null;
+        try {
+            String consulta = "FROM Empleado u WHERE u.cedula = ?1";
+            Query query  = em.createQuery(consulta);
+            query.setParameter(1, usuario.getCedula());
+            
+            List<Empleado> listEmpleado = query.getResultList();
+            
+            if(!listEmpleado.isEmpty()){
+                empleado = listEmpleado.get(0);
+            }
+        } catch (Exception e) {
+            throw  e;
+        }
+       return empleado;
+    }
 }

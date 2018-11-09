@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditSolicitudArticuloTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditSolicitudArticuloLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{solicitudArticuloController.selected.id}" title="#{bundle.EditSolicitudArticuloTitle_id}" required="true" requiredMessage="#{bundle.EditSolicitudArticuloRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.EditSolicitudArticuloLabel_cantidad}" for="cantidad" />
+                    <h:inputText id="cantidad" value="#{solicitudArticuloController.selected.cantidad}" title="#{bundle.EditSolicitudArticuloTitle_cantidad}" required="true" requiredMessage="#{bundle.EditSolicitudArticuloRequiredMessage_cantidad}"/>
+                    <h:outputLabel value="#{bundle.EditSolicitudArticuloLabel_idArticulo}" for="idArticulo" />
+                    <h:selectOneMenu id="idArticulo" value="#{solicitudArticuloController.selected.idArticulo}" title="#{bundle.EditSolicitudArticuloTitle_idArticulo}" required="true" requiredMessage="#{bundle.EditSolicitudArticuloRequiredMessage_idArticulo}">
+                        <f:selectItems value="#{articuloController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditSolicitudArticuloLabel_idSolicitud}" for="idSolicitud" />
+                    <h:selectOneMenu id="idSolicitud" value="#{solicitudArticuloController.selected.idSolicitud}" title="#{bundle.EditSolicitudArticuloTitle_idSolicitud}" required="true" requiredMessage="#{bundle.EditSolicitudArticuloRequiredMessage_idSolicitud}">
+                        <f:selectItems value="#{solicitudController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditSolicitudArticuloLabel_idUnidadMedida}" for="idUnidadMedida" />
+                    <h:selectOneMenu id="idUnidadMedida" value="#{solicitudArticuloController.selected.idUnidadMedida}" title="#{bundle.EditSolicitudArticuloTitle_idUnidadMedida}" required="true" requiredMessage="#{bundle.EditSolicitudArticuloRequiredMessage_idUnidadMedida}">
+                        <f:selectItems value="#{unidadMedidaController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{solicitudArticuloController.update}" value="#{bundle.EditSolicitudArticuloSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditSolicitudArticuloViewLink}"/>
+                <br />
+                <h:commandLink action="#{solicitudArticuloController.prepareList}" value="#{bundle.EditSolicitudArticuloShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditSolicitudArticuloIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

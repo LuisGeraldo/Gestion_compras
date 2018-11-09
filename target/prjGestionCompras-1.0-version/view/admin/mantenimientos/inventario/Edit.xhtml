@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText  class="crud" value="#{bundle.EditInventarioTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages class="crud" errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <section class="crud">
+                  <div class="input-field">
+                    <h:outputLabel value="#{bundle.EditInventarioLabel_costoUnitario}" for="costoUnitario" />
+                    <h:inputText id="costoUnitario" class="only-number" value="#{inventarioController.selected.costoUnitario}" title="#{bundle.EditInventarioTitle_costoUnitario}" />
+                  </div>
+                    
+                   <div class="input-field">
+                        <h:outputLabel value="#{bundle.EditInventarioLabel_existencia}" for="existencia" />
+                        <h:inputText id="existencia" class="only-number" value="#{inventarioController.selected.existencia}" title="#{bundle.EditInventarioTitle_existencia}" required="true" requiredMessage="#{bundle.EditInventarioRequiredMessage_existencia}"/>
+                   </div> 
+                    
+                    
+                    <h:outputLabel class="label" value="#{bundle.EditInventarioLabel_idArticulo}" for="idArticulo" />
+                    <h:selectOneMenu id="idArticulo" class="browser-default combo" value="#{inventarioController.selected.idArticulo}" title="#{bundle.EditInventarioTitle_idArticulo}" required="true" requiredMessage="#{bundle.EditInventarioRequiredMessage_idArticulo}">
+                        <f:selectItems value="#{articuloController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                <br />
+                <br />
+                <h:commandLink class="btn btn-verde" action="#{inventarioController.update}" value="#{bundle.EditInventarioSaveLink}"/>
+                <br />
+                <br />
+                <h:link class="btn btn-azul" outcome="View" value="#{bundle.EditInventarioViewLink}"/>
+                <br />
+                <h:commandLink class="btn" action="#{inventarioController.prepareList}" value="#{bundle.EditInventarioShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link class="btn btn-gris" outcome="List" value="#{bundle.EditInventarioIndexLink}" />
+                </section>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

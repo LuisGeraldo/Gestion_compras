@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml" >
+        <ui:define name="title">
+            <h:outputText class="crud" value="#{bundle.CreateArticuloTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup class="crud" id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <section class="crud">
+            <h:form>
+                
+                    <div class="input-field col s6">
+                        <h:outputLabel value="#{bundle.CreateArticuloLabel_descripcion}" for="descripcion" />
+                        <h:inputText id="descripcion" value="#{articuloController.selected.descripcion}" class="only-letter" title="#{bundle.CreateArticuloTitle_descripcion}" required="true" requiredMessage="#{bundle.CreateArticuloRequiredMessage_descripcion}"/>
+                    </div>
+                    
+                   
+                    <h:outputLabel class="label" value="#{bundle.CreateArticuloLabel_idEstado}" for="idEstado" />
+                    <h:selectOneMenu class="browser-default combo" id="idEstado" value="#{articuloController.selected.idEstado}" title="#{bundle.CreateArticuloTitle_idEstado}" required="true" requiredMessage="#{bundle.CreateArticuloRequiredMessage_idEstado}">
+                        <f:selectItems value="#{estadoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                   
+                    
+                    <h:outputLabel class="label" value="#{bundle.CreateArticuloLabel_idMarca}" for="idMarca" />
+                    <h:selectOneMenu class="browser-default combo" id="idMarca" value="#{articuloController.selected.idMarca}" title="#{bundle.CreateArticuloTitle_idMarca}" required="true" requiredMessage="#{bundle.CreateArticuloRequiredMessage_idMarca}">
+                        <f:selectItems value="#{marcaController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    
+                    <h:outputLabel class="label" value="#{bundle.CreateArticuloLabel_idUnidadMedida}" for="idUnidadMedida" />
+                    <h:selectOneMenu class="browser-default combo" id="idUnidadMedida" value="#{articuloController.selected.idUnidadMedida}" title="#{bundle.CreateArticuloTitle_idUnidadMedida}" required="true" requiredMessage="#{bundle.CreateArticuloRequiredMessage_idUnidadMedida}">
+                        <f:selectItems value="#{unidadMedidaController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                
+                <br />
+                <h:commandLink class="btn btn-verde" action="#{articuloController.create}" value="#{bundle.CreateArticuloSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink class="btn btn-azul" action="#{articuloController.prepareList}" value="#{bundle.CreateArticuloShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link class="btn btn-gris" outcome="List" value="#{bundle.CreateArticuloIndexLink}"/>
+            </h:form>
+                </section>
+        </ui:define>
+    </ui:composition>
+
+</html>

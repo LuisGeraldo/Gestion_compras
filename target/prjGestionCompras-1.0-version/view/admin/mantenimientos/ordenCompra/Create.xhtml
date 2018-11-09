@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText class="crud" value="#{bundle.CreateOrdenCompraTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages class="crud" errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <section class="crud">
+                   <div class="input-field">
+                        <h:outputLabel value="#{bundle.CreateOrdenCompraLabel_fecha}" for="fecha" />
+                        <h:inputText id="fecha" value="#{ordenCompraController.selected.fecha}" title="#{bundle.CreateOrdenCompraTitle_fecha}" required="true" requiredMessage="#{bundle.CreateOrdenCompraRequiredMessage_fecha}"/>
+                   </div>
+                    
+                    <div class="input-field">
+                        <h:outputLabel value="#{bundle.CreateOrdenCompraLabel_montoTotal}" for="montoTotal" />
+                        <h:inputText id="montoTotal" value="#{ordenCompraController.selected.montoTotal}" title="#{bundle.CreateOrdenCompraTitle_montoTotal}" />
+                    </div>
+                    
+                    
+                    <h:outputLabel class="label" value="#{bundle.CreateOrdenCompraLabel_idEstado}" for="idEstado" />
+                    <h:selectOneMenu class="browser-default combo" id="idEstado" value="#{ordenCompraController.selected.idEstado}" title="#{bundle.CreateOrdenCompraTitle_idEstado}" required="true" requiredMessage="#{bundle.CreateOrdenCompraRequiredMessage_idEstado}">
+                        <f:selectItems value="#{estadoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+               
+                <br />
+                <h:commandLink class="btn btn-verde" action="#{ordenCompraController.create}" value="#{bundle.CreateOrdenCompraSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink class="btn btn-azul" action="#{ordenCompraController.prepareList}" value="#{bundle.CreateOrdenCompraShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link class="btn btn-gris" outcome="List" value="#{bundle.CreateOrdenCompraIndexLink}"/>
+                </section>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

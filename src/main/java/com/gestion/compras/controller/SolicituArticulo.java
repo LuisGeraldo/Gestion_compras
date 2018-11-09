@@ -5,9 +5,11 @@
  */
 package com.gestion.compras.controller;
 
-import com.gestion.compras.controller.util.JsfUtil;
+
 import com.gestion.compras.ejb.EmpleadoFacade;
 import com.gestion.compras.ejb.InventarioFacade;
+import com.gestion.compras.ejb.OrdenCompraFacade;
+import com.gestion.compras.ejb.OrdenSolicitudFacade;
 import com.gestion.compras.ejb.SolicitudArticuloFacade;
 import com.gestion.compras.ejb.SolicitudFacade;
 import com.gestion.compras.entities.Articulo;
@@ -15,18 +17,17 @@ import com.gestion.compras.entities.Departamento;
 import com.gestion.compras.entities.Empleado;
 import com.gestion.compras.entities.Estado;
 import com.gestion.compras.entities.Inventario;
+import com.gestion.compras.entities.OrdenCompra;
 import com.gestion.compras.entities.Solicitud;
 import com.gestion.compras.entities.SolicitudArticulo;
 import com.gestion.compras.entities.UnidadMedida;
 import com.gestion.compras.entities.Usuario;
 import java.io.Serializable;
 import java.util.Calendar;
-import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
-import javax.faces.model.SelectItem;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 
@@ -50,9 +51,13 @@ public class SolicituArticulo implements Serializable{
     
     @EJB
     private InventarioFacade ejbInventarioFacade;
-            
     
-   
+    @EJB
+    private OrdenCompraFacade ejbOrdenCompraFacade;
+               
+    @EJB
+    private OrdenSolicitudFacade ejbOrdenSolicitudFacade;
+    
     Empleado empleado;
     
     Solicitud solicitud;
@@ -61,8 +66,10 @@ public class SolicituArticulo implements Serializable{
     
     Articulo articuloSeleccionado[];
     
-    
     SolicitudArticulo solicitudArticulo;
+    
+    OrdenCompra ordenCompra;
+    
     
 
     @PostConstruct
@@ -109,6 +116,7 @@ public class SolicituArticulo implements Serializable{
     
     public void solicitar(){
         Inventario inventario;
+       
         Calendar fechaActual = Calendar.getInstance();
         
 //        invetario = new Inventario();
@@ -116,7 +124,6 @@ public class SolicituArticulo implements Serializable{
             
             //Creo la solicitud    
              solicitud.setFechaSolicitud(fechaActual.get(Calendar.DAY_OF_MONTH)+"/"+(fechaActual.get(Calendar.MONTH) + 1)+"/"+fechaActual.get(Calendar.YEAR));
-
              solicitud.setIdDepatamento(new Departamento(empleado.getIdEmpleado().getId()));
              solicitud.setIdEmpleado(new Empleado(empleado.getId()));
              solicitud.setIdEstado(new Estado(1));
@@ -129,7 +136,18 @@ public class SolicituArticulo implements Serializable{
                 
                 if(inventario.getExistencia() == 0){
                     
-                    FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Bueno mi loco, no hay" , "Solitud"));
+//                    ordenCompra.setFecha(fechaActual.get(Calendar.DAY_OF_MONTH)+"/"+(fechaActual.get(Calendar.MONTH) + 1)+"/"+fechaActual.get(Calendar.YEAR));
+//                   
+//                    ordenCompra.setMontoTotal(inventario.getCostoUnitario()); 
+//                    ordenCompra.setIdEstado(new Estado(1));
+//                    
+//                    ejbOrdenCompraFacade.create(ordenCompra);
+//                    int idOrden = ordenCompra.getId();
+//                    
+                    
+                    FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "No hay "+ ar.getDescripcion() , "Solitud"));
+               
+                
                 }else{
                     
                     solicitudArticulo.setCantidad(10);

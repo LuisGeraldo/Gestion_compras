@@ -60,7 +60,7 @@ public class LoginController implements Serializable{
                     break;
                     
                 case "EMPLEADO":
-                    context.getApplication().getNavigationHandler().handleNavigation(context, null, "view/empleado/indexEmpleado.xhtml");                
+                    context.getExternalContext().redirect("view/empleado/content/index/Empleado.xhtml");
                     context.getExternalContext().getSessionMap().put("usuario", user);
                     
                     break;
