@@ -19,10 +19,10 @@
                     <h:outputText value="#{solicitudController.pagination.pageFirstItem + 1}..#{solicitudController.pagination.pageLastItem + 1}/#{solicitudController.pagination.itemsCount}"/>&nbsp;
                     <h:commandLink action="#{solicitudController.previous}" value="#{bundle.Previous} #{solicitudController.pagination.pageSize}" rendered="#{solicitudController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{solicitudController.next}" value="#{bundle.Next} #{solicitudController.pagination.pageSize}" rendered="#{solicitudController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{solicitudController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                    <h:dataTable value="#{solicitudController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 0px">
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListSolicitudTitle_id}"/>
+                                <h:outputText value="No."/>
                             </f:facet>
                             <h:outputText value="#{item.id}"/>
                         </h:column>
@@ -36,37 +36,36 @@
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListSolicitudTitle_idDepatamento}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idDepatamento}"/>
+                            <h:outputText value="#{item.idDepatamento.nombre}"/>
                         </h:column>
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListSolicitudTitle_idEmpleado}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idEmpleado}"/>
+                            <h:outputText value="#{item.idEmpleado.nombre}"/>
                         </h:column>
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListSolicitudTitle_idEstado}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idEstado}"/>
+                            <h:outputText value="#{item.idEstado.nombre}"/>
                         </h:column>
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:commandLink action="#{solicitudController.prepareView}" value="#{bundle.ListSolicitudViewLink}"/>
+                            <h:commandLink class="btn btn-verde" action="#{solicitudController.prepareView}" value="#{bundle.ListSolicitudViewLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{solicitudController.prepareEdit}" value="#{bundle.ListSolicitudEditLink}"/>
+                            <h:commandLink class="btn btn-azul" action="#{solicitudController.prepareEdit}" value="#{bundle.ListSolicitudEditLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{solicitudController.destroy}" value="#{bundle.ListSolicitudDestroyLink}"/>
+                            <h:commandLink class="btn btn-rojo" action="#{solicitudController.destroy}" value="#{bundle.ListSolicitudDestroyLink}"/>
                         </h:column>
                     </h:dataTable>
                 </h:panelGroup>
                 <br />
-                <h:commandLink action="#{solicitudController.prepareCreate}" value="#{bundle.ListSolicitudCreateLink}"/>
+                <h:commandLink class="btn btn-verde" action="#{solicitudController.prepareCreate}" value="#{bundle.ListSolicitudCreateLink}"/>
                 <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.ListSolicitudIndexLink}"/>
+                
             </h:form>
         </ui:define>
     </ui:composition>

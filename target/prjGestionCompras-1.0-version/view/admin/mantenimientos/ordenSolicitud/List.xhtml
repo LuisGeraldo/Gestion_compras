@@ -42,11 +42,11 @@
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:commandLink action="#{ordenSolicitudController.prepareView}" value="#{bundle.ListOrdenSolicitudViewLink}"/>
+                            <h:commandLink class="btn btn-verde" action="#{ordenSolicitudController.prepareView}" value="#{bundle.ListOrdenSolicitudViewLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{ordenSolicitudController.prepareEdit}" value="#{bundle.ListOrdenSolicitudEditLink}"/>
+                            <h:commandLink class="btn btn-azul" action="#{ordenSolicitudController.prepareEdit}" value="#{bundle.ListOrdenSolicitudEditLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{ordenSolicitudController.destroy}" value="#{bundle.ListOrdenSolicitudDestroyLink}"/>
+                            <h:commandLink class="btn btn-rojo" action="#{ordenSolicitudController.destroy}" value="#{bundle.ListOrdenSolicitudDestroyLink}"/>
                         </h:column>
                     </h:dataTable>
                 </h:panelGroup>
