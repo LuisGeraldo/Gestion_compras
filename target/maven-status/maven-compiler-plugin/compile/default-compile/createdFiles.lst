@@ -21,6 +21,7 @@ com/gestion/compras/controller/SolicitudArticuloController$SolicitudArticuloCont
 com/gestion/compras/ejb/SolicitudArticuloFacade.class
 com/gestion/compras/entities/Articulo_.class
 com/gestion/compras/controller/TipoUsuarioController$TipoUsuarioControllerConverter.class
+com/gestion/compras/controller/MisSolicitudes.class
 com/gestion/compras/ejb/InventarioFacade.class
 com/gestion/compras/ejb/DepartamentoFacade.class
 com/gestion/compras/ejb/AbstractFacade.class

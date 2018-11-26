@@ -24,10 +24,34 @@ public class SolicitudController implements Serializable {
 
     private Solicitud current;
     private DataModel items = null;
+    private DataModel misItems = null;
     @EJB
     private com.gestion.compras.ejb.SolicitudFacade ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
+    private int cantidadSolicitudes;
+    private int cantidadSolicitudesAprobadas;
+
+    public int getCantidadSolicitudes() {
+        cantidadSolicitudes = ejbFacade.noSolicitud(4);
+        return cantidadSolicitudes;
+    }
+
+    public void setCantidadSolicitudes(int cantidadSolicitudes) {
+        this.cantidadSolicitudes = cantidadSolicitudes;
+    }
+
+    public int getCantidadSolicitudesAprobadas() {
+        cantidadSolicitudesAprobadas = ejbFacade.noSolicitud(3);
+        return cantidadSolicitudesAprobadas;
+    }
+
+    public void setCantidadSolicitudesAprobadas(int cantidadSolicitudesAprobadas) {
+        this.cantidadSolicitudesAprobadas = cantidadSolicitudesAprobadas;
+    }
+    
+    
+    
 
     public SolicitudController() {
     }
@@ -159,9 +183,17 @@ public class SolicitudController implements Serializable {
         }
         return items;
     }
+    
+    public DataModel getMisItems(){
+        if(misItems == null){
+            misItems = getPagination().createPageDataModel();
+        }
+        return  misItems;
+    }
 
     private void recreateModel() {
         items = null;
+        misItems = null;
     }
 
     private void recreatePagination() {
@@ -191,7 +223,7 @@ public class SolicitudController implements Serializable {
     public Solicitud getSolicitud(java.lang.Integer id) {
         return ejbFacade.find(id);
     }
-
+    
     @FacesConverter(forClass = Solicitud.class)
     public static class SolicitudControllerConverter implements Converter {
 

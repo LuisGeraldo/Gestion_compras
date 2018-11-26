@@ -5,10 +5,13 @@
  */
 package com.gestion.compras.ejb;
 
+import com.gestion.compras.entities.Estado;
 import com.gestion.compras.entities.Solicitud;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -27,6 +30,24 @@ public class SolicitudFacade extends AbstractFacade<Solicitud> {
 
     public SolicitudFacade() {
         super(Solicitud.class);
+    }
+    
+    public int noSolicitud(int idEstado){
+        int cantidad = 0;
+        try {
+           String consulta = "FROM Solicitud u WHERE u.idEstado = ?1";
+           
+            Query query = em.createQuery(consulta);
+            query.setParameter(1, new Estado(idEstado));
+            
+            List<Estado> listSolicitudes = query.getResultList();
+            cantidad = listSolicitudes.size();
+            
+        } catch (Exception e) {
+            throw e;
+        }
+ 
+        return cantidad;
     }
     
 }

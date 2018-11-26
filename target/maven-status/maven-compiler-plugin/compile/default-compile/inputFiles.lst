@@ -19,6 +19,7 @@
 /home/luis/NetBeansProjects/prjGestionCompras/src/main/java/com/gestion/compras/controller/ControlAccesoClass.java
 /home/luis/NetBeansProjects/prjGestionCompras/src/main/java/com/gestion/compras/entities/Inventario.java
 /home/luis/NetBeansProjects/prjGestionCompras/src/main/java/com/gestion/compras/ejb/DepartamentoFacade.java
+/home/luis/NetBeansProjects/prjGestionCompras/src/main/java/com/gestion/compras/controller/MisSolicitudes.java
 /home/luis/NetBeansProjects/prjGestionCompras/src/main/java/com/gestion/compras/ejb/EmpleadoFacade.java
 /home/luis/NetBeansProjects/prjGestionCompras/src/main/java/com/gestion/compras/ejb/AbstractFacade.java
 /home/luis/NetBeansProjects/prjGestionCompras/src/main/java/com/gestion/compras/ejb/MarcaFacade.java

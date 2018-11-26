@@ -1,0 +1,20 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Nov 21, 2018, 8:10:44 PM
+    Author     : luis
+*/
+
+.tableSolicitudes{
+    width: 90%;
+    background: white !important;
+    color: #000000 !important;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px 3px #AFAFAF;
+    padding: 20px;
+    
+}

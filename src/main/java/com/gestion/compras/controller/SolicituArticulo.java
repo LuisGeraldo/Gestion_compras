@@ -153,7 +153,9 @@ public class SolicituArticulo implements Serializable{
                     solicitudArticulo.setCantidad(10);
                     solicitudArticulo.setIdArticulo(new Articulo(ar.getId()));
                     solicitudArticulo.setIdSolicitud(new Solicitud(idSolicitud));
-                    solicitudArticulo.setIdUnidadMedida(new UnidadMedida(1));
+                    solicitudArticulo.setIdUnidadMedida(new UnidadMedida(ar.getIdUnidadMedida().getId()));
+                    
+                    
                     inventario.setExistencia(inventario.getExistencia() - 10);
                     ejbInventarioFacade.edit(inventario);
                     ejbSolicituArticulo.create(solicitudArticulo); 

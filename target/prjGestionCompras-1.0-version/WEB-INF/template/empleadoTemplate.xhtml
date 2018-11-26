@@ -9,6 +9,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
         <link rel="stylesheet" href="../../../../resources/css/empleadoEstiloss.css"/>
+        <link rel="stylesheet" href="../../../../resources/css/estilos-int.css"/>
         <f:event type="preRenderView" listener="#{solicituArticulo.sessionInfo()}"/>
         <title>Empleado</title>
     </h:head>
@@ -22,13 +23,15 @@
                         <div class="nav-wrapper">
                           <a href="#" class="brand-logo">Modulo de empleado</a>
                           <ul id="nav-mobile" class="right hide-on-med-and-down">
-                            <li><h:link value="Solicitud"/></li>
-                            <li><h:link value="Mis solicitudes"/></li>
-                            <li>
+                              
                                <h:form>
-                                    <h:commandLink styleClass="btn cerrar-session btn-gris" action="#{controlAccesoClass.cerraSesion()}"  value="Cerrar sesion"/>
+                                    <li><h:link outcome="/view/empleado/content/index/Empleado" value="Solicitud"/></li>
+                                    <li><h:link outcome="/view/empleado/content/solicitudes/MisSolicitudes" value="Mis solicitudes"/></li>
+                                    <li> 
+                                        <h:commandLink styleClass="btn cerrar-session btn-gris" action="#{controlAccesoClass.cerraSesion()}"  value="Cerrar sesion"/>
+                                    </li>
                                </h:form>  
-                            </li>
+                            
                           </ul>
                         </div>
                     </section>
