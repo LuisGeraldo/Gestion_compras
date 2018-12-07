@@ -80,43 +80,87 @@ Este sistema tiene como objetivo gestionar el abastecimiento de materiales de of
 <h1>Screenshots de la aplicacion</h1>
 
 <h3 style="display: inline; font-family: Arial">Pantalla inicial</h3>
+<br/>
 <img style="display: block; margin: 0 auto;" src="screen/img_01.png" alt="Screenshot aplication"/>
 
 <h3 style="display: inline; font-family: Arial">Pantalla de login</h3>
+<br/>
 <img style="display: block; margin: 0 auto;" src="screen/img_02.png" alt="Screenshot aplication"/>
 
 <h3 style="display: inline; font-family: Arial">Validacion de la cedula </h3>
+<br/>
 <img style="display: block; margin: 0 auto;" src="screen/img_03.png" alt="Screenshot aplication"/>
 
 <h3 style="display: inline; font-family: Arial">Validacion de usuario</h3>
+<br/>
 <img style="display: block; margin: 0 auto;" src="screen/img_04.png" alt="Screenshot aplication"/>
 
 <h3 style="display: inline; font-family: Arial">Vista departamental</h3>
+<br/>
 <img style="display: block; margin: 0 auto;" src="screen/img_05.png" alt="Screenshot aplication"/>
 
 <h3 style="display: inline; font-family: Arial">Vista departamental</h3>
+<br/>
 <img style="display: block; margin: 0 auto;" src="screen/img_06.png" alt="Screenshot aplication"/>
+<br/>
 <img style="display: block; margin: 0 auto;" src="screen/img_07.png" alt="Screenshot aplication"/>
+<br/>
 
 <h3 style="display: inline; font-family: Arial">Seleccion de materiales</h3>
+<br/>
 <img style="display: block; margin: 0 auto;" src="screen/img_08.png" alt="Screenshot aplication"/>
+<br/>
 <img style="display: block; margin: 0 auto;" src="screen/img_09.png" alt="Screenshot aplication"/>
+<br/>
 <img style="display: block; margin: 0 auto;" src="screen/img_10.png" alt="Screenshot aplication"/>
+<br/>
 
 <h3 style="display: inline; font-family: Arial">Las solicitudes de un empleado</h3>
+<br/>
 <img style="display: block; margin: 0 auto;" src="screen/img_11.png" alt="Screenshot aplication"/>
 
-<h3 style="display: inline; font-family: Arial">Vista del administrador/h3>
+<h3 style="display: inline; font-family: Arial">Vista del administrador</h3>
+<br/>
 <img style="display: block; margin: 0 auto;" src="screen/img_12.png" alt="Screenshot aplication"/>
 
-<h3 style="display: inline; font-family: Arial">Listas de solicitudes realizadas/h3>
+<h3 style="display: inline; font-family: Arial">Listas de solicitudes realizadas</h3>
+<br/>
 <img style="display: block; margin: 0 auto;" src="screen/img_13.png" alt="Screenshot aplication"/>
-
-<h3 style="display: inline; font-family: Arial">Detalle de una solicitud/h3>
+<br/>
+<h3 style="display: inline; font-family: Arial">Detalle de una solicitud</h3>
+<br/>
 <img style="display: block; margin: 0 auto;" src="screen/img_14.png" alt="Screenshot aplication"/>
+<br/>
 
-<h3 style="display: inline; font-family: Arial">Solicitud aprobada/h3>
+<h3 style="display: inline; font-family: Arial">Solicitud aprobada</h3>
 <p>En este caso algunos articulos de la solicitud excedian la cantidad de ejemplares inventariados, por eso se genero una solicitud de compra</p>
+<br/>
 <img style="display: block; margin: 0 auto;" src="screen/img_15.png" alt="Screenshot aplication"/>
+
+<br/>
+<h3 style="display: inline; font-family: Arial">Ordenes de compras realizadas</h3>
+<br/>
+<p>En este caso se muestran las ordenes de compras generales creadas por el sistema automaticamente</p>
+<img style="display: block; margin: 0 auto;" src="screen/img_16.png" alt="Screenshot aplication"/>
+<br/>
+
+<br/>
+<h3 style="display: inline; font-family: Arial">Detalle de una orden de compra</h3>
+<br/>
+<img style="display: block; margin: 0 auto;" src="screen/img_17.png" alt="Screenshot aplication"/>
+<br/>
+
+
+<br/>
+<h3 style="display: inline; font-family: Arial">Vista del inventario</h3>
+<br/>
+<p>Como se puede ver, algunos de los articulos solicitados tienen dos unidades en existencia, esto se debe a que el inventario nunca llega a 0, siempre deja en almacen dos unidades del producto para casos de emergencia</p>
+<img style="display: block; margin: 0 auto;" src="screen/img_18.png" alt="Screenshot aplication"/>
+<br/>
+
+
+
+
+
 
 
