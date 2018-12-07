@@ -8,6 +8,7 @@
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
             <h:outputText value="#{bundle.ListUnidadMedidaTitle}"></h:outputText>
+            <f:event type="preRenderView" listener="#{unidadMedidaController.prepareList()}"/>
         </ui:define>
         <ui:define name="body">
             <h:form styleClass="jsfcrud_list_form">

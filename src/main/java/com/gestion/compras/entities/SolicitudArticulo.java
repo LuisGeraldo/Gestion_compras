@@ -6,6 +6,7 @@
 package com.gestion.compras.entities;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -36,7 +37,6 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "SolicitudArticulo.findById", query = "SELECT s FROM SolicitudArticulo s WHERE s.id = :id")
     , @NamedQuery(name = "SolicitudArticulo.findByCantidad", query = "SELECT s FROM SolicitudArticulo s WHERE s.cantidad = :cantidad")})
 public class SolicitudArticulo implements Serializable {
-
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -69,6 +69,12 @@ public class SolicitudArticulo implements Serializable {
     public SolicitudArticulo(Integer id, int cantidad) {
         this.id = id;
         this.cantidad = cantidad;
+    }
+    
+    public SolicitudArticulo(int cantidad, Articulo idArticulo,UnidadMedida idUnidadMedida){
+        this.cantidad = cantidad;
+        this.idArticulo = idArticulo;
+        this.idUnidadMedida = idUnidadMedida;
     }
 
     public Integer getId() {
@@ -142,7 +148,6 @@ public class SolicitudArticulo implements Serializable {
 
     @Override
     public String toString() {
-        return "com.gestion.compras.entities.SolicitudArticulo[ id=" + id + " ]";
-    }
-    
+        return  "Articulo: "+ idArticulo.getDescripcion() + " , Cantidad: " + cantidad;
+    }   
 }

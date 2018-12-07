@@ -7,13 +7,11 @@
 
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <h:outputStylesheet name="css/cssLayout.css"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
-        <title>Gestion de compras | Administrador</title>
+        <h:outputStylesheet name="css/cssLayout.css"/>
+        <title>Agile Materials | Administrador</title>
         <f:event type="preRenderView" listener="#{sessionInf.sessionInfo()}"/>
         <f:event type="preRenderView" listener="#{controlAccesoClass.onlyAdmin()}"/>
-    
-  
     </h:head>
 
     <h:body>
@@ -28,7 +26,6 @@
         <div>
             <div id="left">
                 <ui:insert name="left">
-                    
                  <section class="panel">
                      <article class="panel-info">
                          <h1>Gestion de compras</h1>
@@ -40,6 +37,10 @@
                      <article class="option">
                         <br />
                         <h:link outcome="/view/admin/mantenimientos/Inicio/indexAdmin" value="Inicio"/>
+                        <br />
+                        <h:link outcome="/view/admin/mantenimientos/solicitud/List" value="Solicitud"/>
+                        <br />
+                        <h:link outcome="/view/admin/mantenimientos/ordenCompra/List" value="Orden de compra"/>          
                         <br />
                         <h:link outcome="/view/admin/mantenimientos/articulo/List" value="Articulos"/>
                         <br />
@@ -53,13 +54,7 @@
                         <br />
                         <h:link outcome="/view/admin/mantenimientos/marca/List" value="Marcas"/>
                         <br />
-                        <h:link outcome="/view/admin/mantenimientos/ordenCompra/List" value="Orden de compra"/>
-                        <br />
                         <h:link outcome="/view/admin/mantenimientos/proveedor/List" value="Proveedor"/>
-                        <br />
-                        <h:link outcome="/view/admin/mantenimientos/solicitud/List" value="Solicitud"/>
-                        <br />
-                        <h:link outcome="/view/admin/mantenimientos/solicitudArticulo/List" value="Solicitud Articulo"/>
                         <br />
                         <h:link outcome="/view/admin/mantenimientos/unidadMedida/List" value="Unidad Medida"/>
                         <br />

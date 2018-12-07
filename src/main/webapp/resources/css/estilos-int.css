@@ -5,7 +5,7 @@ and open the template in the editor.
 */
 /* 
     Created on : Nov 21, 2018, 8:10:44 PM
-    Author     : luis
+
 */
 
 .tableSolicitudes{
@@ -16,5 +16,41 @@ and open the template in the editor.
     border-radius: 10px;
     box-shadow: 0px 2px 5px 3px #AFAFAF;
     padding: 20px;
+}
+
+
+.contenedor{
+    width: 85%;
+    margin: 0 auto;  
+}
+
+.contenedor article{
+    width: 70%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contenedor article h3{
+    font-size: 40px;
+    padding: 10px;
+}
+
+.contenedor article h1{
+    margin-top: 100px;
+    color: green;
+}
+
+.contenedor article h4{
+    font-size: 20px;
+}
+
+.btn-index{
+    width: 250px;
+    background: yellowgreen;
+    font-size: 20px;
+    margin: 10px;
+    height: 90px;
+    text-align: center;
+    padding: 25px;
     
 }

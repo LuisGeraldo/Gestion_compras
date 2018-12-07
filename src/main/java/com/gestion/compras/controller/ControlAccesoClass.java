@@ -5,6 +5,7 @@
  */
 package com.gestion.compras.controller;
 
+import com.gestion.compras.controller.util.JsfUtil;
 import com.gestion.compras.entities.Usuario;
 import java.io.Serializable;
 import javax.faces.context.FacesContext;
@@ -15,54 +16,48 @@ import javax.inject.Named;
  *
  * @author luis
  */
+
 @Named
 @ViewScoped
-
 public class ControlAccesoClass implements Serializable{
    
     Usuario user;
   
     public void onlyAdmin() {
-        FacesContext context = FacesContext.getCurrentInstance();
         try {
-           
            user = new Usuario();
-           
-           user = (Usuario) context.getExternalContext().getSessionMap().get("usuario");
+           user = (Usuario) JsfUtil.getSession("usuario");
            
            if(user == null || !user.getIdTipoUsuario().getDescripcion().equals("ADMIN")){
-               context.getExternalContext().redirect("./../../../../alert.xhtml");
+               JsfUtil.redirect("./../../../../alert.xhtml");
            }   
            
         } catch (Exception e) {
-            
+            JsfUtil.addErrorMessage("Ocurrio un error" + e);
         }
     }
        
-       
     public void onlyEmpleado(){
         try {
-           FacesContext context = FacesContext.getCurrentInstance();
-           user = new Usuario();
-           
-           user = (Usuario) context.getExternalContext().getSessionMap().get("usuario");
+           user = new Usuario();        
+           user = (Usuario) JsfUtil.getSession("usuario");
            
            if(user == null || !user.getIdTipoUsuario().getDescripcion().equals("EMPLEADO")){
-                context.getExternalContext().redirect("./../../../../NoPermiso.xhtml");
-           }   
+               JsfUtil.redirect("./../../../../NoPermiso.xhtml");
+           }
            
         } catch (Exception e) {
-            
+            JsfUtil.addErrorMessage("Ocurrio un error" + e);
         }
     }    
                 
     public void cerraSesion(){           
      FacesContext context = FacesContext.getCurrentInstance();
         try {
-            context.getExternalContext().getSessionMap().remove("usuario");
-            context.getExternalContext().redirect("./../../../../LoginView.xhtml");
+            JsfUtil.sessionRemove("usuario");
+            JsfUtil.redirect("./../../../../LoginView.xhtml");
         } catch (Exception e) {
-           
+           JsfUtil.addErrorMessage("Ocurrio un error" + e);
         }
     }     
 }

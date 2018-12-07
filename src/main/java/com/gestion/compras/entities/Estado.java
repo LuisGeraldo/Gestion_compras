@@ -74,6 +74,10 @@ public class Estado implements Serializable {
     public Estado(Integer id) {
         this.id = id;
     }
+    
+    public Estado(String nombre){
+        this.nombre = nombre;
+    }
 
     public Estado(Integer id, String nombre) {
         this.id = id;

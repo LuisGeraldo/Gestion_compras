@@ -102,19 +102,19 @@
 
 
 .btn-azul{
-    background: #036fab;
+    background: #036fab !important;
 }
 
 .btn-gris{
-    background: #AFAFAF;
+    background: #AFAFAF !important;
 }
 
 .btn-verde{
-    background: yellowgreen;
+    background: yellowgreen !important;
 }
 
 .btn-rojo{
-    background: red;
+    background: red !important;
 }
 
 .label{
@@ -137,7 +137,7 @@
     margin: 0px !important;
     padding: 5px !important;
     margin-top: 0;
-    background: url(../img/im.jpg);
+    background: url(../img/img_fondo.webp);
     background-size: cover;
     height: 240px;
     left: 0;
@@ -215,16 +215,56 @@
     justify-content: center;
 }
 
+#title{
+    color: green;
+    
+}
+
 .card-c{
     display: inline;
     width: 300px;
-    margin-right: 20px;
+    margin: 10px !important;
     height: 200px;
     font-size: 25px !important;
     text-align: center;
+    margin-bottom: 20px !important;
 }
+
+.card-c label{
+    font-size: 17px;
+}
+
 
 .card-btn{
     width: 100%;
     margin-top: 5px;
 }
+
+.tabla-prime{
+    display: block;
+    width: 100%;
+}
+
+.tabla-prime th, td{
+    border: none !important;
+    border-color: #ffffff !important;    
+}
+
+.title{
+    float: left;   
+}
+
+.controller-crud{
+    width: 320px !important;
+}
+
+.export{
+    margin-bottom: 10px;   
+    float: right;
+}
+
+.export-table{
+    width: 100% !important;
+    display: block !important;
+}
+

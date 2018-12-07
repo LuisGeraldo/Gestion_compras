@@ -1,5 +1,6 @@
 package com.gestion.compras.controller.util;
 
+import java.util.Calendar;
 import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
@@ -56,5 +57,25 @@ public class JsfUtil {
         String theId = JsfUtil.getRequestParameter(requestParameterName);
         return converter.getAsObject(FacesContext.getCurrentInstance(), component, theId);
     }
-
+    
+    public static Object getSession(String key){
+        return FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get(key);
+    }
+    
+    public static Object setSession(Object object, String key){
+        return FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put(key, object);
+    }
+    
+    public static Object sessionRemove(String key){
+        return FacesContext.getCurrentInstance().getExternalContext().getSessionMap().remove(key);
+    }
+    
+    public static void redirect(String url) throws Exception{
+        FacesContext.getCurrentInstance().getExternalContext().redirect(url);
+    }
+    
+    public static String fecha(){
+        Calendar fechaActual = Calendar.getInstance();
+        return fechaActual.get(Calendar.DAY_OF_MONTH)+"/"+(fechaActual.get(Calendar.MONTH) + 1)+"/"+fechaActual.get(Calendar.YEAR);
+    }
 }

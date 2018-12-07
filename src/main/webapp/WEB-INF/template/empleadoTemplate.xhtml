@@ -9,7 +9,6 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
         <link rel="stylesheet" href="../../../../resources/css/empleadoEstiloss.css"/>
-        <link rel="stylesheet" href="../../../../resources/css/estilos-int.css"/>
         <f:event type="preRenderView" listener="#{solicituArticulo.sessionInfo()}"/>
         <title>Empleado</title>
     </h:head>
@@ -42,8 +41,9 @@
         <div id="content" class="center_content">
             <ui:insert name="content">Content</ui:insert>
         </div>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"/>
+        <h:outputScript library="primefaces" name="jquery/jquery.js" target="head" />
+        <h:outputScript library="primefaces" name="jquery/jquery-plugins.js" target="head" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"/>
-    
+        <script src="../../../../resources/js/validations.js"  type="text/javascript" />
     </h:body>
 </html>

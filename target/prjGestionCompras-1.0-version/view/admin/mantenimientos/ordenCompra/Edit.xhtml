@@ -20,11 +20,6 @@
                         <h:inputText id="fecha" value="#{ordenCompraController.selected.fecha}" title="#{bundle.EditOrdenCompraTitle_fecha}" required="true" requiredMessage="#{bundle.EditOrdenCompraRequiredMessage_fecha}"/>
                     </div>
                     
-                    <div class="input-field">
-                        <h:outputLabel value="#{bundle.EditOrdenCompraLabel_montoTotal}" for="montoTotal" />
-                        <h:inputText id="montoTotal" value="#{ordenCompraController.selected.montoTotal}" title="#{bundle.EditOrdenCompraTitle_montoTotal}" />
-                    </div>
-                    
                     <h:outputLabel class="label" value="#{bundle.EditOrdenCompraLabel_idEstado}" for="idEstado" />
                     <h:selectOneMenu id="idEstado" class="browser-default combo" value="#{ordenCompraController.selected.idEstado}" title="#{bundle.EditOrdenCompraTitle_idEstado}" required="true" requiredMessage="#{bundle.EditOrdenCompraRequiredMessage_idEstado}">
                         <f:selectItems value="#{estadoController.itemsAvailableSelectOne}"/>

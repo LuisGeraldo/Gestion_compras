@@ -28,7 +28,7 @@
                     </div>
                     
                     <h:outputLabel class="label" value="Departamento" for="idEmpleado" />
-                    <h:selectOneMenu class="browser-default combo" id="idEmpleado" value="#{empleadoController.selected.idEmpleado}" title="#{bundle.CreateEmpleadoTitle_idEmpleado}" required="true" requiredMessage="#{bundle.CreateEmpleadoRequiredMessage_idEmpleado}">
+                    <h:selectOneMenu class="browser-default combo" id="idEmpleado" value="#{empleadoController.selected.idDepatamento}" title="#{bundle.CreateEmpleadoTitle_idEmpleado}" required="true" requiredMessage="#{bundle.CreateEmpleadoRequiredMessage_idEmpleado}">
                         <f:selectItems value="#{departamentoController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
                     

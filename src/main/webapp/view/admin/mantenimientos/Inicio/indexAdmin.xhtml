@@ -9,14 +9,15 @@
         <ui:composition template="./../../../../template.xhtml">
 
             <ui:define name="body">
+                <center><h1 id="title">Agile Materials</h1></center>
+                
+                
                 <section class="board">
-                    
                     
                      <article class="card card-c">
                          <label>Solicitudes pendientes</label>
                          
                          <h1 style="color: green"><h:outputText  value="#{solicitudController.cantidadSolicitudes}"/></h1>
-                         
                          
                          <h:link class="btn btn-verde card-btn" outcome="/view/admin/mantenimientos/solicitud/List" value="Ver"/> 
                     </article>
@@ -28,14 +29,7 @@
                          
                          <h:link class="btn btn-verde card-btn" outcome="/view/admin/mantenimientos/articulo/List" value="Ver"/> 
                     </article>
-                    
-                     <article class="card card-c">
-                         <label>Departamentos</label>
-                         
-                         <h1 style="color: green">9</h1>
-                         
-                         <h:link class="btn btn-verde card-btn" outcome="/view/admin/mantenimientos/articulo/List" value="Ver"/>    
-                    </article>    
+                       
                 </section>
             </ui:define>
 

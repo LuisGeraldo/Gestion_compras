@@ -5,7 +5,7 @@
  */
 package com.gestion.compras.controller;
 
-
+import com.gestion.compras.controller.util.JsfUtil;
 import com.gestion.compras.ejb.UsuarioFacade;
 import com.gestion.compras.entities.Usuario;
 import java.io.Serializable;
@@ -47,32 +47,28 @@ public class LoginController implements Serializable{
     
     public void iniciarSesion(){
         Usuario user;
-        FacesContext context = FacesContext.getCurrentInstance();
         try {
             user = ejbUsuarioFacade.iniciarSesion(usuario); 
             
             
             switch(user.getIdTipoUsuario().getDescripcion()){
                 case "ADMIN": 
-                    context.getExternalContext().redirect("view/admin/mantenimientos/Inicio/indexAdmin.xhtml");
-                    context.getExternalContext().getSessionMap().put("usuario", user);
-                   
+                    JsfUtil.setSession(user, "usuario");
+                    JsfUtil.redirect("view/admin/mantenimientos/Inicio/indexAdmin.xhtml");
                     break;
                     
                 case "EMPLEADO":
-                    context.getExternalContext().redirect("view/empleado/content/index/Empleado.xhtml");
-                    context.getExternalContext().getSessionMap().put("usuario", user);
-                    
+                    JsfUtil.setSession(user, "usuario");
+                    JsfUtil.redirect("view/empleado/content/index/Empleado.xhtml");
                     break;
                     
                 default:
-                    FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,"Credenciales incorrectas", "error"));
-                    
+                    JsfUtil.addErrorMessage("Credenciales incorrectas");
                     break;      
             }
                   
         } catch (Exception e) {
-             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,"Credenciales incorrectas", "error"));
+                    JsfUtil.addErrorMessage("Credenciales incorrectas");
         }  
     }
 }

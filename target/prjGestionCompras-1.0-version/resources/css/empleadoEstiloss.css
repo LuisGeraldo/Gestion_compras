@@ -5,11 +5,11 @@ and open the template in the editor.
 */
 /* 
     Created on : Nov 3, 2018, 4:35:49 PM
-    Author     : luis
+
 */
 body{
     margin: 0 auto;
-    background:  url(../img/im.jpg);
+    background:  url(../img/img_fondo.webp);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -34,7 +34,6 @@ body{
 
 .top{
     box-shadow: 5px 5px 5px #dddddd;
-    
 }
 
 
@@ -117,5 +116,21 @@ label{
     text-align: center;
 }
 
+.ui-dialog-titlebar-close{
+    height: 10px;
+    width: 10px;
+    background-image: url(../../resources/Imagenes/left.png);
+    background-position: center;
+    background-size: 20px;
+}
 
+.tableSolicitudes{
+    width: 90%;
+    background: white !important;
+    color: #000000 !important;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px 3px #AFAFAF;
+    padding: 20px;
+}
 

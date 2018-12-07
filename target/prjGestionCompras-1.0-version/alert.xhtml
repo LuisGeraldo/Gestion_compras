@@ -5,19 +5,20 @@
     <h:head>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
         <link rel="stylesheet" href="resources/css/form-estilos.css"/>
-        <title>Sign In</title>
+        <link rel="stylesheet" href="resources/css/estilos-int.css"/>
+        <title>Alert</title>
     </h:head>
     <h:body>
         <h:form>
-            <section class="form">
-                <center><h1>Permisos insuficientes</h1></center>
-                      
-            </section>
+            <section class="contenedor">
+                <article>
+
+                    <h1>Permisos insuficientes</h1>
+                    <h3>No puede acceder a esta opcion, no tienes los permisos necesarios. Posiblemente su sesion expiro</h3>
+
+                    <h:link class="waves-effect waves-light btn btn-index" outcome="/LoginView.xhtml" value="Iniciar sesion"/>
+                </article>
+        </section>
         </h:form>
-    </h:body>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script type="text/javascript" src="resources/js/validations.js"/>
+    </h:body> 
 </html>
-
-

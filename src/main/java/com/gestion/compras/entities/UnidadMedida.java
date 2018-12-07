@@ -6,6 +6,7 @@
 package com.gestion.compras.entities;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -38,6 +39,7 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "UnidadMedida.findByNombre", query = "SELECT u FROM UnidadMedida u WHERE u.nombre = :nombre")})
 public class UnidadMedida implements Serializable {
 
+  
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -135,5 +137,14 @@ public class UnidadMedida implements Serializable {
     public String toString() {
         return nombre;
     }
+
+//    @XmlTransient
+//    public Collection<OrdenCompraArticulo> getOrdenCompraArticuloCollection() {
+//        return ordenCompraArticuloCollection;
+//    }
+//
+//    public void setOrdenCompraArticuloCollection(Collection<OrdenCompraArticulo> ordenCompraArticuloCollection) {
+//        this.ordenCompraArticuloCollection = ordenCompraArticuloCollection;
+//    }
     
 }

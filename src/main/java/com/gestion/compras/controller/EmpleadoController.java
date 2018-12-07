@@ -4,7 +4,6 @@ import com.gestion.compras.entities.Empleado;
 import com.gestion.compras.controller.util.JsfUtil;
 import com.gestion.compras.controller.util.PaginationHelper;
 import com.gestion.compras.ejb.EmpleadoFacade;
-
 import java.io.Serializable;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;

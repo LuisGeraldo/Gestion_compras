@@ -6,6 +6,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <ui:composition template="/template.xhtml">
+        <f:event type="preRenderView" listener="#{proveedorController.prepareList()}"/>
         <ui:define name="title">
             <h:outputText value="#{bundle.ListProveedorTitle}"></h:outputText>
             <f:event type="preRenderView" listener="#{proveedorController.prepareList()}"/>

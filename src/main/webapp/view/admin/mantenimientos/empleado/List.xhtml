@@ -3,49 +3,69 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
             <h:outputText value="#{bundle.ListEmpleadoTitle}"></h:outputText>
+            <f:event type="preRenderView" listener="#{empleadoController.prepareList()}"/>
         </ui:define>
         <ui:define name="body">
-            <h:form styleClass="jsfcrud_list_form">
+            
+            <h:form >
                 <h:panelGroup id="messagePanel" layout="block">
                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
                 </h:panelGroup>
+                
+                 <hgroup>
+                    <h:commandLink class="export">
+                        <img src="../../../../resources/img/excel.svg" width="50"/>
+                        <p:dataExporter type="xls" target="td" fileName="empleados" />
+                    </h:commandLink>
+
+                    <h:commandLink>
+                        <img src="../../../../resources/img/pdf.svg" width="50"/>
+                        <p:dataExporter type="pdf" target="td" fileName="empleados" />
+                    </h:commandLink>
+               </hgroup>
+                
                 <h:outputText escape="false" value="#{bundle.ListEmpleadoEmpty}" rendered="#{empleadoController.items.rowCount == 0}"/>
                 <h:panelGroup rendered="#{empleadoController.items.rowCount > 0}">
+               
                     <h:outputText value="#{empleadoController.pagination.pageFirstItem + 1}..#{empleadoController.pagination.pageLastItem + 1}/#{empleadoController.pagination.itemsCount}"/>&nbsp;
                     <h:commandLink action="#{empleadoController.previous}" value="#{bundle.Previous} #{empleadoController.pagination.pageSize}" rendered="#{empleadoController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{empleadoController.next}" value="#{bundle.Next} #{empleadoController.pagination.pageSize}" rendered="#{empleadoController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{empleadoController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 0px">
+                    <p:dataTable value="#{empleadoController.items}" id="td" var="item"  styleClass="tabla-prime">
                        
-                        <h:column>
+                        <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListEmpleadoTitle_nombre}"/>
+                                <h:outputText class="title" value="#{bundle.ListEmpleadoTitle_nombre}"/>
                             </f:facet>
                             <h:outputText value="#{item.nombre}"/>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+                        
+                        <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListEmpleadoTitle_cedula}"/>
+                                <h:outputText class="title" value="#{bundle.ListEmpleadoTitle_cedula}"/>
                             </f:facet>
                             <h:outputText value="#{item.cedula}"/>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+                        
+                        <p:column>
                             <f:facet name="header">
-                                <h:outputText value="Departamento"/>
+                                <h:outputText class="title" value="Departamento"/>
                             </f:facet>
-                            <h:outputText value="#{item.idEmpleado.nombre}"/>
-                        </h:column>
-                        <h:column>
+                            <h:outputText value="#{item.idDepatamento.nombre}"/>
+                        </p:column>
+                        <p:column >
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListEmpleadoTitle_idEstado}"/>
+                                <h:outputText class="title" value="#{bundle.ListEmpleadoTitle_idEstado}"/>
                             </f:facet>
                             <h:outputText value="#{item.idEstado.nombre}"/>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+                        
+                        <p:column  class="controller-crud" exportable="false">
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
@@ -54,8 +74,8 @@
                             <h:commandLink class="btn btn-azul" action="#{empleadoController.prepareEdit}" value="#{bundle.ListEmpleadoEditLink}"/>
                             <h:outputText value=" "/>
                             <h:commandLink class="btn btn-rojo" action="#{empleadoController.destroy}" value="#{bundle.ListEmpleadoDestroyLink}"/>
-                        </h:column>
-                    </h:dataTable>
+                        </p:column>
+                    </p:dataTable>
                 </h:panelGroup>
                 <br />
                 <h:commandLink class="btn btn-verde" action="#{empleadoController.prepareCreate}" value="#{bundle.ListEmpleadoCreateLink}"/>

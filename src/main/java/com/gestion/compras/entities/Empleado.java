@@ -6,9 +6,7 @@
 package com.gestion.compras.entities;
 
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,12 +16,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -55,14 +51,12 @@ public class Empleado implements Serializable {
     @Size(min = 1, max = 50)
     @Column(name = "cedula")
     private String cedula;
-    @JoinColumn(name = "id_empleado", referencedColumnName = "id")
+    @JoinColumn(name = "id_depatamento", referencedColumnName = "id")
     @ManyToOne(optional = false)
-    private Departamento idEmpleado;
+    private Departamento idDepatamento;
     @JoinColumn(name = "id_estado", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Estado idEstado;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idEmpleado")
-    private List<Solicitud> solicitudList;
 
     public Empleado() {
     }
@@ -101,12 +95,12 @@ public class Empleado implements Serializable {
         this.cedula = cedula;
     }
 
-    public Departamento getIdEmpleado() {
-        return idEmpleado;
+    public Departamento getIdDepatamento() {
+        return idDepatamento;
     }
 
-    public void setIdEmpleado(Departamento idEmpleado) {
-        this.idEmpleado = idEmpleado;
+    public void setIdDepatamento(Departamento idDepatamento) {
+        this.idDepatamento = idDepatamento;
     }
 
     public Estado getIdEstado() {
@@ -115,15 +109,6 @@ public class Empleado implements Serializable {
 
     public void setIdEstado(Estado idEstado) {
         this.idEstado = idEstado;
-    }
-
-    @XmlTransient
-    public List<Solicitud> getSolicitudList() {
-        return solicitudList;
-    }
-
-    public void setSolicitudList(List<Solicitud> solicitudList) {
-        this.solicitudList = solicitudList;
     }
 
     @Override
@@ -148,7 +133,7 @@ public class Empleado implements Serializable {
 
     @Override
     public String toString() {
-        return nombre;
+        return "com.gestion.compras.entities.Empleado[ id=" + id + " ]";
     }
     
 }
