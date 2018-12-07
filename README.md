@@ -157,9 +157,10 @@ Este sistema tiene como objetivo gestionar el abastecimiento de materiales de of
 <p>Como se puede ver, algunos de los articulos solicitados tienen dos unidades en existencia, esto se debe a que el inventario nunca llega a 0, siempre deja en almacen dos unidades del producto para casos de emergencia</p>
 <img style="display: block; margin: 0 auto;" src="screen/img_18.png" alt="Screenshot aplication"/>
 <br/>
+<br/>
 
-
-
+<h3 style="display: inline; font-family: Arial">Nota:</h3>
+<p>Estas son algunas capturas del sistema, el mismo tiene otras funcionalidas no detallas en el readme</p>
 
 
 
