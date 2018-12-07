@@ -4,7 +4,6 @@ import com.gestion.compras.entities.Departamento;
 import com.gestion.compras.controller.util.JsfUtil;
 import com.gestion.compras.controller.util.PaginationHelper;
 import com.gestion.compras.ejb.DepartamentoFacade;
-
 import java.io.Serializable;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
@@ -229,7 +228,5 @@ public class DepartamentoController implements Serializable {
                 throw new IllegalArgumentException("object " + object + " is of type " + object.getClass().getName() + "; expected type: " + Departamento.class.getName());
             }
         }
-
     }
-
 }

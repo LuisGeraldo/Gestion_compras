@@ -6,8 +6,7 @@
 package com.gestion.compras.entities;
 
 import java.io.Serializable;
-import java.math.BigInteger;
-import java.util.List;
+import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -36,9 +35,11 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "OrdenCompra.findAll", query = "SELECT o FROM OrdenCompra o")
     , @NamedQuery(name = "OrdenCompra.findById", query = "SELECT o FROM OrdenCompra o WHERE o.id = :id")
-    , @NamedQuery(name = "OrdenCompra.findByFecha", query = "SELECT o FROM OrdenCompra o WHERE o.fecha = :fecha")
-    , @NamedQuery(name = "OrdenCompra.findByMontoTotal", query = "SELECT o FROM OrdenCompra o WHERE o.montoTotal = :montoTotal")})
+    , @NamedQuery(name = "OrdenCompra.findByFecha", query = "SELECT o FROM OrdenCompra o WHERE o.fecha = :fecha")})
 public class OrdenCompra implements Serializable {
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idOrdenCompra")
+    private Collection<OrdenCompraArticulo> ordenCompraArticuloCollection;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -51,10 +52,9 @@ public class OrdenCompra implements Serializable {
     @Size(min = 1, max = 20)
     @Column(name = "fecha")
     private String fecha;
-    @Column(name = "monto_total")
-    private BigInteger montoTotal;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idOrdenCompra")
-    private List<OrdenSolicitud> ordenSolicitudList;
+    @JoinColumn(name = "id_empleado", referencedColumnName = "id")
+    @ManyToOne(optional = false)
+    private Empleado idEmpleado;
     @JoinColumn(name = "id_estado", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Estado idEstado;
@@ -87,21 +87,12 @@ public class OrdenCompra implements Serializable {
         this.fecha = fecha;
     }
 
-    public BigInteger getMontoTotal() {
-        return montoTotal;
+    public Empleado getIdEmpleado() {
+        return idEmpleado;
     }
 
-    public void setMontoTotal(BigInteger montoTotal) {
-        this.montoTotal = montoTotal;
-    }
-
-    @XmlTransient
-    public List<OrdenSolicitud> getOrdenSolicitudList() {
-        return ordenSolicitudList;
-    }
-
-    public void setOrdenSolicitudList(List<OrdenSolicitud> ordenSolicitudList) {
-        this.ordenSolicitudList = ordenSolicitudList;
+    public void setIdEmpleado(Empleado idEmpleado) {
+        this.idEmpleado = idEmpleado;
     }
 
     public Estado getIdEstado() {
@@ -135,6 +126,15 @@ public class OrdenCompra implements Serializable {
     @Override
     public String toString() {
         return "com.gestion.compras.entities.OrdenCompra[ id=" + id + " ]";
+    }
+
+    @XmlTransient
+    public Collection<OrdenCompraArticulo> getOrdenCompraArticuloCollection() {
+        return ordenCompraArticuloCollection;
+    }
+
+    public void setOrdenCompraArticuloCollection(Collection<OrdenCompraArticulo> ordenCompraArticuloCollection) {
+        this.ordenCompraArticuloCollection = ordenCompraArticuloCollection;
     }
     
 }

@@ -7,33 +7,42 @@
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
-            <h:outputText value="#{bundle.CreateProveedorTitle}"></h:outputText>
+            <h:outputText class="crud" value="#{bundle.CreateProveedorTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
             <h:panelGroup id="messagePanel" layout="block">
-                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                <h:messages class="crud" errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
             <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreateProveedorLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{proveedorController.selected.id}" title="#{bundle.CreateProveedorTitle_id}" required="true" requiredMessage="#{bundle.CreateProveedorRequiredMessage_id}"/>
-                    <h:outputLabel value="#{bundle.CreateProveedorLabel_nombre}" for="nombre" />
-                    <h:inputText id="nombre" value="#{proveedorController.selected.nombre}" title="#{bundle.CreateProveedorTitle_nombre}" required="true" requiredMessage="#{bundle.CreateProveedorRequiredMessage_nombre}"/>
+                <section class="crud">
+                    <div class="input-field">
+                        <h:outputLabel value="#{bundle.CreateProveedorLabel_nombre}" for="nombre" />
+                        <h:inputText id="nombre" class="only-letter" value="#{proveedorController.selected.nombre}" title="#{bundle.CreateProveedorTitle_nombre}" required="true" requiredMessage="#{bundle.CreateProveedorRequiredMessage_nombre}"/>
+                    </div>
+                    
+                    <div class="input-field">
                     <h:outputLabel value="#{bundle.CreateProveedorLabel_identificacion}" for="identificacion" />
-                    <h:inputText id="identificacion" value="#{proveedorController.selected.identificacion}" title="#{bundle.CreateProveedorTitle_identificacion}" required="true" requiredMessage="#{bundle.CreateProveedorRequiredMessage_identificacion}"/>
-                    <h:outputLabel value="#{bundle.CreateProveedorLabel_idEstado}" for="idEstado" />
-                    <h:selectOneMenu id="idEstado" value="#{proveedorController.selected.idEstado}" title="#{bundle.CreateProveedorTitle_idEstado}" required="true" requiredMessage="#{bundle.CreateProveedorRequiredMessage_idEstado}">
+                    <h:inputText class="only-number" id="identificacion" value="#{proveedorController.selected.identificacion}" validator="#{componentValidator.validateCedula}" title="#{bundle.CreateProveedorTitle_identificacion}" required="true" maxlength="11" requiredMessage="#{bundle.CreateProveedorRequiredMessage_identificacion}">
+                        <f:ajax render="idIndentificacion"/>
+                    </h:inputText>
+                    </div>
+                    
+                    
+                    <h:outputLabel class="label" value="#{bundle.CreateProveedorLabel_idEstado}" for="idEstado" />
+                    <h:selectOneMenu id="idEstado" class="browser-default combo" value="#{proveedorController.selected.idEstado}" title="#{bundle.CreateProveedorTitle_idEstado}" required="true" requiredMessage="#{bundle.CreateProveedorRequiredMessage_idEstado}">
                         <f:selectItems value="#{estadoController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
-                </h:panelGrid>
+                
                 <br />
-                <h:commandLink action="#{proveedorController.create}" value="#{bundle.CreateProveedorSaveLink}" />
-                <br />
-                <br />
-                <h:commandLink action="#{proveedorController.prepareList}" value="#{bundle.CreateProveedorShowAllLink}" immediate="true"/>
+                <h:commandLink class="btn btn-verde" action="#{proveedorController.create}" value="#{bundle.CreateProveedorSaveLink}" />
                 <br />
                 <br />
-                <h:link outcome="/index" value="#{bundle.CreateProveedorIndexLink}"/>
+                <h:commandLink class="btn btn-azul" action="#{proveedorController.prepareList}" value="#{bundle.CreateProveedorShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link class="btn btn-gris" outcome="List" value="#{bundle.CreateProveedorIndexLink}"/>
+               </section>
+            
             </h:form>
         </ui:define>
     </ui:composition>

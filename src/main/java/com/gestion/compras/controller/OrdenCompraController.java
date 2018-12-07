@@ -3,9 +3,12 @@ package com.gestion.compras.controller;
 import com.gestion.compras.entities.OrdenCompra;
 import com.gestion.compras.controller.util.JsfUtil;
 import com.gestion.compras.controller.util.PaginationHelper;
+import com.gestion.compras.ejb.OrdenArticuloFacade;
 import com.gestion.compras.ejb.OrdenCompraFacade;
+import com.gestion.compras.entities.OrdenCompraArticulo;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.inject.Named;
@@ -26,12 +29,30 @@ public class OrdenCompraController implements Serializable {
     private DataModel items = null;
     @EJB
     private com.gestion.compras.ejb.OrdenCompraFacade ejbFacade;
+    
+    @EJB
+    private OrdenArticuloFacade ejbArticuloFacade;
+    
     private PaginationHelper pagination;
     private int selectedItemIndex;
+    
+    List<OrdenCompraArticulo> listOrdenCompras = null;
 
     public OrdenCompraController() {
     }
 
+    public List<OrdenCompraArticulo> getListOrdenCompras(int id) {
+        listOrdenCompras = ejbArticuloFacade.articulosPorSolicitud(id);
+        
+        return listOrdenCompras;
+    }
+
+    public void setListOrdenCompras(List<OrdenCompraArticulo> listOrdenCompras) {
+        this.listOrdenCompras = listOrdenCompras;
+    }
+
+    
+    
     public OrdenCompra getSelected() {
         if (current == null) {
             current = new OrdenCompra();

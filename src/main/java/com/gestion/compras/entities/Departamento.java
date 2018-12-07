@@ -48,11 +48,10 @@ public class Departamento implements Serializable {
     @NotNull
     @Size(min = 1, max = 50)
     @Column(name = "nombre")
-    private String nombre;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idEmpleado")
-    private List<Empleado> empleadoList;
+    private String nombre;    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idDepatamento")
     private List<Solicitud> solicitudList;
+    
     @JoinColumn(name = "id_estado", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Estado idEstado;
@@ -83,15 +82,6 @@ public class Departamento implements Serializable {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    @XmlTransient
-    public List<Empleado> getEmpleadoList() {
-        return empleadoList;
-    }
-
-    public void setEmpleadoList(List<Empleado> empleadoList) {
-        this.empleadoList = empleadoList;
     }
 
     @XmlTransient

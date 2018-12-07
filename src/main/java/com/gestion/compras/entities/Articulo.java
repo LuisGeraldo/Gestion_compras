@@ -6,6 +6,7 @@
 package com.gestion.compras.entities;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -37,6 +38,9 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Articulo.findById", query = "SELECT a FROM Articulo a WHERE a.id = :id")
     , @NamedQuery(name = "Articulo.findByDescripcion", query = "SELECT a FROM Articulo a WHERE a.descripcion = :descripcion")})
 public class Articulo implements Serializable {
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idArticulo")
+    private Collection<OrdenCompraArticulo> ordenCompraArticuloCollection;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -156,6 +160,15 @@ public class Articulo implements Serializable {
     @Override
     public String toString() {
         return descripcion;
+    }
+
+    @XmlTransient
+    public Collection<OrdenCompraArticulo> getOrdenCompraArticuloCollection() {
+        return ordenCompraArticuloCollection;
+    }
+
+    public void setOrdenCompraArticuloCollection(Collection<OrdenCompraArticulo> ordenCompraArticuloCollection) {
+        this.ordenCompraArticuloCollection = ordenCompraArticuloCollection;
     }
     
 }

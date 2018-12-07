@@ -3,9 +3,11 @@ package com.gestion.compras.controller;
 import com.gestion.compras.entities.Solicitud;
 import com.gestion.compras.controller.util.JsfUtil;
 import com.gestion.compras.controller.util.PaginationHelper;
+import com.gestion.compras.ejb.EmpleadoFacade;
 import com.gestion.compras.ejb.SolicitudFacade;
-
+import com.gestion.compras.entities.Estado;
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.inject.Named;
@@ -24,10 +26,36 @@ public class SolicitudController implements Serializable {
 
     private Solicitud current;
     private DataModel items = null;
+  
     @EJB
     private com.gestion.compras.ejb.SolicitudFacade ejbFacade;
+    
+    @EJB
+    private EmpleadoFacade ejbEmpleadoFacade;
+                        
     private PaginationHelper pagination;
     private int selectedItemIndex;
+    private int cantidadSolicitudes;
+    private int cantidadSolicitudesAprobadas;
+
+  
+    public int getCantidadSolicitudes() {
+        cantidadSolicitudes = ejbFacade.noSolicitud(4);
+        return cantidadSolicitudes;
+    }
+
+    public void setCantidadSolicitudes(int cantidadSolicitudes) {
+        this.cantidadSolicitudes = cantidadSolicitudes;
+    }
+
+    public int getCantidadSolicitudesAprobadas() {
+        cantidadSolicitudesAprobadas = ejbFacade.noSolicitud(3);
+        return cantidadSolicitudesAprobadas;
+    }
+
+    public void setCantidadSolicitudesAprobadas(int cantidadSolicitudesAprobadas) {
+        this.cantidadSolicitudesAprobadas = cantidadSolicitudesAprobadas;
+    }
 
     public SolicitudController() {
     }
@@ -81,6 +109,8 @@ public class SolicitudController implements Serializable {
 
     public String create() {
         try {
+            Calendar calendar = Calendar.getInstance();
+            current.setFechaSolicitud(""+calendar.getTime());
             getFacade().create(current);
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("SolicitudCreated"));
             return prepareCreate();
@@ -159,6 +189,7 @@ public class SolicitudController implements Serializable {
         }
         return items;
     }
+    
 
     private void recreateModel() {
         items = null;
@@ -191,7 +222,20 @@ public class SolicitudController implements Serializable {
     public Solicitud getSolicitud(java.lang.Integer id) {
         return ejbFacade.find(id);
     }
+    
+    
+    public void aprobar(){
+        try {
+            current.setIdEstado(new Estado(5));
+            ejbFacade.edit(current);
+            JsfUtil.addSuccessMessage("Solicitud aprobada");
 
+        } catch (Exception e) {
+            JsfUtil.addErrorMessage("La solicitud no aprobada");
+        } 
+    }
+    
+    
     @FacesConverter(forClass = Solicitud.class)
     public static class SolicitudControllerConverter implements Converter {
 
@@ -231,5 +275,4 @@ public class SolicitudController implements Serializable {
         }
 
     }
-
 }

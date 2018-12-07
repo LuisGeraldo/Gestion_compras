@@ -6,10 +6,12 @@ import com.gestion.compras.controller.util.PaginationHelper;
 import com.gestion.compras.ejb.SolicitudArticuloFacade;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
@@ -26,11 +28,15 @@ public class SolicitudArticuloController implements Serializable {
     private DataModel items = null;
     @EJB
     private com.gestion.compras.ejb.SolicitudArticuloFacade ejbFacade;
+    private List<SolicitudArticulo> listSolicitudArticulo = null;
+    
     private PaginationHelper pagination;
     private int selectedItemIndex;
 
     public SolicitudArticuloController() {
     }
+    
+    
 
     public SolicitudArticulo getSelected() {
         if (current == null) {
@@ -44,6 +50,17 @@ public class SolicitudArticuloController implements Serializable {
         return ejbFacade;
     }
 
+    public List<SolicitudArticulo> getListSolicitudArticulo(int id) {
+        listSolicitudArticulo = ejbFacade.articulosPorSolicitud(id);
+        
+        return listSolicitudArticulo;
+    }
+
+    public void setListSolicitudArticulo(List<SolicitudArticulo> listSolicitudArticulo) {
+        this.listSolicitudArticulo = listSolicitudArticulo;
+    }
+
+    
     public PaginationHelper getPagination() {
         if (pagination == null) {
             pagination = new PaginationHelper(10) {
@@ -138,6 +155,7 @@ public class SolicitudArticuloController implements Serializable {
         }
     }
 
+    
     private void updateCurrentItem() {
         int count = getFacade().count();
         if (selectedItemIndex >= count) {
@@ -191,6 +209,12 @@ public class SolicitudArticuloController implements Serializable {
     public SolicitudArticulo getSolicitudArticulo(java.lang.Integer id) {
         return ejbFacade.find(id);
     }
+    
+    
+
+    
+    
+    
 
     @FacesConverter(forClass = SolicitudArticulo.class)
     public static class SolicitudArticuloControllerConverter implements Converter {
@@ -232,4 +256,8 @@ public class SolicitudArticuloController implements Serializable {
 
     }
 
+    public void obtenerDetalle(int id){
+        listSolicitudArticulo = ejbFacade.articulosPorSolicitud(id);
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.FACES_MESSAGES, "id "+ id));
+    }   
 }

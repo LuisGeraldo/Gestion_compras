@@ -7,34 +7,40 @@
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
-            <h:outputText value="#{bundle.EditMarcaTitle}"></h:outputText>
+            <h:outputText class="crud" value="#{bundle.EditMarcaTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
             <h:panelGroup id="messagePanel" layout="block">
-                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                <h:messages class="crud" errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
             <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.EditMarcaLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{marcaController.selected.id}" title="#{bundle.EditMarcaTitle_id}" required="true" requiredMessage="#{bundle.EditMarcaRequiredMessage_id}"/>
-                    <h:outputLabel value="#{bundle.EditMarcaLabel_nombre}" for="nombre" />
-                    <h:inputText id="nombre" value="#{marcaController.selected.nombre}" title="#{bundle.EditMarcaTitle_nombre}" required="true" requiredMessage="#{bundle.EditMarcaRequiredMessage_nombre}"/>
-                    <h:outputLabel value="#{bundle.EditMarcaLabel_descripcion}" for="descripcion" />
-                    <h:inputText id="descripcion" value="#{marcaController.selected.descripcion}" title="#{bundle.EditMarcaTitle_descripcion}" required="true" requiredMessage="#{bundle.EditMarcaRequiredMessage_descripcion}"/>
-                    <h:outputLabel value="#{bundle.EditMarcaLabel_idEstado}" for="idEstado" />
-                    <h:selectOneMenu id="idEstado" value="#{marcaController.selected.idEstado}" title="#{bundle.EditMarcaTitle_idEstado}" required="true" requiredMessage="#{bundle.EditMarcaRequiredMessage_idEstado}">
+                <section class="crud">
+                    <div class="input-field">
+                        <h:outputLabel value="#{bundle.EditMarcaLabel_nombre}" for="nombre" />
+                        <h:inputText id="nombre" value="#{marcaController.selected.nombre}" title="#{bundle.EditMarcaTitle_nombre}" required="true" requiredMessage="#{bundle.EditMarcaRequiredMessage_nombre}"/>
+                    </div>
+                    
+                    <div class="input-field">
+                        <h:outputLabel value="#{bundle.EditMarcaLabel_descripcion}" for="descripcion" />
+                        <h:inputText id="descripcion" value="#{marcaController.selected.descripcion}" title="#{bundle.EditMarcaTitle_descripcion}" required="true" requiredMessage="#{bundle.EditMarcaRequiredMessage_descripcion}"/>
+                    </div>
+                    
+                    <h:outputLabel class="label" value="#{bundle.EditMarcaLabel_idEstado}" for="idEstado" />
+                    <h:selectOneMenu class="browser-default combo" id="idEstado" value="#{marcaController.selected.idEstado}" title="#{bundle.EditMarcaTitle_idEstado}" required="true" requiredMessage="#{bundle.EditMarcaRequiredMessage_idEstado}">
                         <f:selectItems value="#{estadoController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
-                </h:panelGrid>
-                <h:commandLink action="#{marcaController.update}" value="#{bundle.EditMarcaSaveLink}"/>
                 <br />
                 <br />
-                <h:link outcome="View" value="#{bundle.EditMarcaViewLink}"/>
-                <br />
-                <h:commandLink action="#{marcaController.prepareList}" value="#{bundle.EditMarcaShowAllLink}" immediate="true"/>
+                <h:commandLink class="btn btn-verde" action="#{marcaController.update}" value="#{bundle.EditMarcaSaveLink}"/>
                 <br />
                 <br />
-                <h:link outcome="/index" value="#{bundle.EditMarcaIndexLink}" />
+                <h:link class="btn btn-azul" outcome="View" value="#{bundle.EditMarcaViewLink}"/>
+                <br />
+                <h:commandLink class="btn" action="#{marcaController.prepareList}" value="#{bundle.EditMarcaShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link class="btn btn-gris" outcome="List" value="#{bundle.EditMarcaIndexLink}" />
+                </section>
             </h:form>
         </ui:define>
     </ui:composition>

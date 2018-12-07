@@ -1,18 +1,36 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
 
     <body>
 
         <ui:composition template="./../../../../template.xhtml">
 
-            <ui:define name="top">
-                top
-            </ui:define>
-
             <ui:define name="body">
-                body
+                <center><h1 id="title">Agile Materials</h1></center>
+                
+                
+                <section class="board">
+                    
+                     <article class="card card-c">
+                         <label>Solicitudes pendientes</label>
+                         
+                         <h1 style="color: green"><h:outputText  value="#{solicitudController.cantidadSolicitudes}"/></h1>
+                         
+                         <h:link class="btn btn-verde card-btn" outcome="/view/admin/mantenimientos/solicitud/List" value="Ver"/> 
+                    </article>
+                    
+                     <article class="card card-c">
+                         <label>Solicitudes aprobadas</label>
+                         
+                         <h1 style="color: green"><h:outputText  value="#{solicitudController.cantidadSolicitudesAprobadas}"/></h1>
+                         
+                         <h:link class="btn btn-verde card-btn" outcome="/view/admin/mantenimientos/articulo/List" value="Ver"/> 
+                    </article>
+                       
+                </section>
             </ui:define>
 
         </ui:composition>
