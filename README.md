@@ -81,24 +81,19 @@ Este sistema tiene como objetivo gestionar el abastecimiento de materiales de of
 <p>Flujo basico del sistema, realizacion de una solicitud por parte de un departamento</p>
 <img style="display: block; margin: 0 auto;" src="screen/app.gif" alt="Screenshot aplication"/>
 <br/>
-<br/>
 
-<p>Algunas validaciones del sistema</p>
-<br/>
+<h3>Algunas validaciones del sistema</h3>
 <p style="display: inline;"> 
     <ul>
-      <li>Cedula correcta</li>
+      <li>Validacion de cedula</li>
+       <li>Manejo de Roles</li>
+      <li>Manejo de filtros y autorizaciones</li>
       <li>Campos no vacios</li>
-      <li>Manejo de Roles</li>
-      <li>Filtros y autorizaciones</li>
     </ul>
   </p>
-  
 <img style="display: block; margin: 0 auto;" src="screen/validaciones.gif" alt="Screenshot aplication"/>
 <br/>
 <br/>
-
-
 
 
 <h1>Screenshots de la aplicacion</h1>
@@ -185,7 +180,3 @@ Este sistema tiene como objetivo gestionar el abastecimiento de materiales de of
 
 <h3 style="display: inline; font-family: Arial">Nota:</h3>
 <p>Estas son algunas capturas del sistema, el mismo tiene otras funcionalidas no detallas en el readme</p>
-
-
-
-
