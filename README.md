@@ -78,9 +78,28 @@ Este sistema tiene como objetivo gestionar el abastecimiento de materiales de of
   </p>    
 
 <h1>Gif de la aplicacion en funcionamiento</h1>
+<p>Flujo basico del sistema, realizacion de una solicitud por parte de un departamento</p>
 <img style="display: block; margin: 0 auto;" src="screen/app.gif" alt="Screenshot aplication"/>
 <br/>
 <br/>
+
+<p>Algunas validaciones del sistema</p>
+<br/>
+<p style="display: inline;"> 
+    <ul>
+      <li>Cedula correcta</li>
+      <li>Campos no vacios</li>
+      <li>Manejo de Roles</li>
+      <li>Filtros y autorizaciones</li>
+    </ul>
+  </p>
+  
+<img style="display: block; margin: 0 auto;" src="screen/validaciones.gif" alt="Screenshot aplication"/>
+<br/>
+<br/>
+
+
+
 
 <h1>Screenshots de la aplicacion</h1>
 
