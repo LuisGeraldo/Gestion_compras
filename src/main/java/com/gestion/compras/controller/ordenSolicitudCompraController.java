@@ -35,9 +35,6 @@ public class ordenSolicitudCompraController implements Serializable{
     
     private OrdenCompra ordenCompra;
     
-    private Articulo articulo;
-    
-    
     public void ordenCompra(List<SolicituArticulo> solictudArticulo){
 //        FacesContext context = FacesContext.getCurrentInstance();
          Calendar calendar = Calendar.getInstance();

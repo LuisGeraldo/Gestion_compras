@@ -58,16 +58,10 @@
                             </f:facet>
                             <h:commandLink class="btn btn-verde" action="#{solicitudController.prepareView}" value="#{bundle.ListSolicitudViewLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink class="btn btn-azul" action="#{solicitudController.prepareEdit}" value="#{bundle.ListSolicitudEditLink}"/>
-                            <h:outputText value=" "/>
                             <h:commandLink class="btn btn-rojo" action="#{solicitudController.destroy}" value="#{bundle.ListSolicitudDestroyLink}"/>
                         </h:column>
                     </h:dataTable>
                 </h:panelGroup>
-                <br />
-                <h:commandLink class="btn btn-verde" action="#{solicitudController.prepareCreate}" value="#{bundle.ListSolicitudCreateLink}"/>
-                <br />
-                
             </h:form>
         </ui:define>
     </ui:composition>

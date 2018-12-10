@@ -16,8 +16,8 @@
                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
               </h:panelGroup>
             <h:form>
-                
-          <hgroup>
+
+                <hgroup>
                     <h:commandLink class="export">
                         <img src="../../../../resources/img/excel.svg" width="50"/>
                         <p:dataExporter type="xls" target="table" fileName="empleados" />
@@ -27,17 +27,10 @@
                         <img src="../../../../resources/img/pdf.svg" width="50"/>
                         <p:dataExporter type="pdf" target="table" fileName="empleados" />
                     </h:commandLink>
-               </hgroup>
-                
-                
-                
-                <h:outputText escape="false" value="#{bundle.ListSolicitudArticuloEmpty}" rendered="#{solicitudArticuloController.items.rowCount == 0}"/>
-                <h:panelGroup rendered="#{solicitudArticuloController.items.rowCount > 0}">
-                    <h:outputText value="#{solicitudArticuloController.pagination.pageFirstItem + 1}..#{solicitudArticuloController.pagination.pageLastItem + 1}/#{solicitudArticuloController.pagination.itemsCount}"/>&nbsp;
-                    <h:commandLink action="#{solicitudArticuloController.previous}" value="#{bundle.Previous} #{solicitudArticuloController.pagination.pageSize}" rendered="#{solicitudArticuloController.pagination.hasPreviousPage}"/>&nbsp;
-                    <h:commandLink action="#{solicitudArticuloController.next}" value="#{bundle.Next} #{solicitudArticuloController.pagination.pageSize}" rendered="#{solicitudArticuloController.pagination.hasNextPage}"/>&nbsp;
-                    <p:dataTable id="table" value="#{solicitudArticuloController.getListSolicitudArticulo(solicitudController.selected.id)}" var="item" styleClass="tabla-prime" style="border:solid 0px">
-                      
+                </hgroup>
+
+             <h:panelGroup>
+                    <p:dataTable id="table" value="#{solicitudArticuloController.getListSolicitudArticulo(solicitudController.selected.id)}" var="item" styleClass="tabla-prime">
                         
                         <p:column>
                             <f:facet name="header">
@@ -59,12 +52,11 @@
                             </f:facet>
                             <h:outputText value="#{item.idUnidadMedida.nombre}"/>
                         </p:column>
+
                         <p:column class="controller-crud" exportable="false">
                             <f:facet name="header" >
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:commandLink class="btn btn-verde" action="#{solicitudOrden.ordenCompra(solicitudController.selected.id)}" value="#{bundle.ListSolicitudArticuloViewLink}"/>
-                            <h:outputText value=" "/>
                             <h:commandLink class="btn btn-azul" action="#{solicitudArticuloController.prepareEdit}" value="#{bundle.ListSolicitudArticuloEditLink}"/>
                             <h:outputText value=" "/>
                             <h:commandLink class="btn btn-rojo" action="#{solicitudArticuloController.destroy}" value="#{bundle.ListSolicitudArticuloDestroyLink}"/>

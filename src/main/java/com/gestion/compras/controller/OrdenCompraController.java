@@ -8,6 +8,7 @@ import com.gestion.compras.ejb.OrdenCompraFacade;
 import com.gestion.compras.entities.OrdenCompraArticulo;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
@@ -33,6 +34,8 @@ public class OrdenCompraController implements Serializable {
     @EJB
     private OrdenArticuloFacade ejbArticuloFacade;
     
+    private List<OrdenCompraArticulo> listOrdenCompraArticulo = null;
+    
     private PaginationHelper pagination;
     private int selectedItemIndex;
     
@@ -51,6 +54,28 @@ public class OrdenCompraController implements Serializable {
         this.listOrdenCompras = listOrdenCompras;
     }
 
+    public List<OrdenCompraArticulo> getListOrdenCompraArticulo() {
+        List<OrdenCompraArticulo> listOrdenCompra;
+        
+        listOrdenCompra = ejbArticuloFacade.listOrdenCompraArticulo();
+        
+        
+        for(OrdenCompraArticulo or: listOrdenCompra){
+            
+          if(or.getIdArticulo().getDescripcion().equals(listOrdenCompra.get(listOrdenCompra.size() - 1).getIdArticulo().getDescripcion())){
+              listOrdenCompraArticulo.add(new OrdenCompraArticulo(or.getCantidad(), or.getIdArticulo()));              
+          }
+            
+        }
+        
+        return listOrdenCompraArticulo;
+    }
+
+    public void setListOrdenCompraArticulo(List<OrdenCompraArticulo> listOrdenCompraArticulo) {
+        this.listOrdenCompraArticulo = listOrdenCompraArticulo;
+    }
+
+    
     
     
     public OrdenCompra getSelected() {
@@ -252,5 +277,9 @@ public class OrdenCompraController implements Serializable {
         }
 
     }
+    
+    
+    
+    
 
 }

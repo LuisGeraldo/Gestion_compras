@@ -8,6 +8,7 @@ import com.gestion.compras.ejb.SolicitudFacade;
 import com.gestion.compras.entities.Estado;
 import java.io.Serializable;
 import java.util.Calendar;
+import java.util.List;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.inject.Named;
@@ -26,37 +27,35 @@ public class SolicitudController implements Serializable {
 
     private Solicitud current;
     private DataModel items = null;
+    private DataModel itemsPendientes = null;
   
     @EJB
     private com.gestion.compras.ejb.SolicitudFacade ejbFacade;
-    
-    @EJB
-    private EmpleadoFacade ejbEmpleadoFacade;
-                        
+     
+
     private PaginationHelper pagination;
     private int selectedItemIndex;
-    private int cantidadSolicitudes;
-    private int cantidadSolicitudesAprobadas;
 
   
     public int getCantidadSolicitudes() {
-        cantidadSolicitudes = ejbFacade.noSolicitud(4);
-        return cantidadSolicitudes;
-    }
-
-    public void setCantidadSolicitudes(int cantidadSolicitudes) {
-        this.cantidadSolicitudes = cantidadSolicitudes;
+        List<Solicitud> listSolicitud = ejbFacade.noSolicitud(4);
+        return listSolicitud.size();
     }
 
     public int getCantidadSolicitudesAprobadas() {
-        cantidadSolicitudesAprobadas = ejbFacade.noSolicitud(3);
-        return cantidadSolicitudesAprobadas;
+        List<Solicitud> listSolicitud = ejbFacade.noSolicitud(3);
+        return listSolicitud.size();
     }
 
-    public void setCantidadSolicitudesAprobadas(int cantidadSolicitudesAprobadas) {
-        this.cantidadSolicitudesAprobadas = cantidadSolicitudesAprobadas;
+    public List<Solicitud> getListSolicitudPendiente() {
+        return ejbFacade.noSolicitud(4);
     }
 
+    public List<Solicitud> getListSolicitudAprobadas() {
+        return ejbFacade.noSolicitud(3);
+    }
+
+    
     public SolicitudController() {
     }
 
@@ -182,6 +181,8 @@ public class SolicitudController implements Serializable {
             current = getFacade().findRange(new int[]{selectedItemIndex, selectedItemIndex + 1}).get(0);
         }
     }
+    
+    
 
     public DataModel getItems() {
         if (items == null) {
@@ -189,7 +190,17 @@ public class SolicitudController implements Serializable {
         }
         return items;
     }
-    
+
+    public DataModel getItemsPendientes() {
+        if(itemsPendientes == null){
+            itemsPendientes = getPagination().createPageDataModel();
+        }
+        return itemsPendientes;
+    }
+
+    public void setItemsPendientes(DataModel itemsPendientes) {
+        this.itemsPendientes = itemsPendientes;
+    }
 
     private void recreateModel() {
         items = null;
@@ -216,10 +227,11 @@ public class SolicitudController implements Serializable {
     }
 
     public SelectItem[] getItemsAvailableSelectOne() {
-        return JsfUtil.getSelectItems(ejbFacade.findAll(), true);
+        return JsfUtil.getSelectItems(ejbFacade.noSolicitud(4), true);
     }
 
     public Solicitud getSolicitud(java.lang.Integer id) {
+        
         return ejbFacade.find(id);
     }
     

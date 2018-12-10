@@ -7,8 +7,6 @@ package com.gestion.compras.ejb;
 
 import com.gestion.compras.entities.OrdenCompra;
 import com.gestion.compras.entities.OrdenCompraArticulo;
-import com.gestion.compras.entities.Solicitud;
-import com.gestion.compras.entities.SolicitudArticulo;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -19,6 +17,7 @@ import javax.persistence.Query;
  *
  * @author luis
  */
+
 @Stateless
 public class OrdenArticuloFacade extends AbstractFacade<OrdenCompraArticulo>{
     
@@ -49,4 +48,18 @@ public class OrdenArticuloFacade extends AbstractFacade<OrdenCompraArticulo>{
         }
         return ordenComprasArticulo;
     }
+    
+    public List<OrdenCompraArticulo> listOrdenCompraArticulo(){
+         List<OrdenCompraArticulo>  listOrdenArticulos = null;
+        try {
+            String consulta = "SELECT o FROM OrdenCompraArticulo o";
+            Query query = em.createQuery(consulta);
+            listOrdenArticulos = query.getResultList();
+            
+        } catch (Exception e) {
+        
+        }
+        
+        return listOrdenArticulos;
+    }   
 }

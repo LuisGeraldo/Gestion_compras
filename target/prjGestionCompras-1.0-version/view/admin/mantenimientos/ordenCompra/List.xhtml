@@ -21,7 +21,7 @@
                     <h:commandLink action="#{ordenCompraController.previous}" value="#{bundle.Previous} #{ordenCompraController.pagination.pageSize}" rendered="#{ordenCompraController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{ordenCompraController.next}" value="#{bundle.Next} #{ordenCompraController.pagination.pageSize}" rendered="#{ordenCompraController.pagination.hasNextPage}"/>&nbsp;
                     <h:dataTable value="#{ordenCompraController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 0px">
-                       
+<!--                       ordenCompraController.items-->
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListOrdenCompraTitle_fecha}"/>
