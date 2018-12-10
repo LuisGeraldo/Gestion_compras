@@ -77,6 +77,11 @@ Este sistema tiene como objetivo gestionar el abastecimiento de materiales de of
     </ul>
   </p>    
 
+<h1>Gif de la aplicacion en funcionamiento</h1>
+<img style="display: block; margin: 0 auto;" src="screen/app.gif" alt="Screenshot aplication"/>
+<br/>
+<br/>
+
 <h1>Screenshots de la aplicacion</h1>
 
 <h3 style="display: inline; font-family: Arial">Pantalla inicial</h3>
