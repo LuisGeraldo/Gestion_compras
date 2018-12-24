@@ -56,7 +56,8 @@ Este sistema tiene como objetivo gestionar el abastecimiento de materiales de of
   
   <p style="display: inline;"> 
     <ul>
-      <li>PostgreSQL</li>
+      <li>xhtml</li>
+      <li>css</li>
     </ul>
   </p>
   
