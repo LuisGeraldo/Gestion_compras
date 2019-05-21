@@ -1,6 +1,6 @@
 # Gestión de compras
 <h1 style="font-family: Arial; text-align: center">Agile Materials</h1>
-<h2>Descripcion</h2>  
+<h2>Descripción</h2>  
      
  <p style="font-family: Arial;">
 Este sistema tiene como objetivo gestionar el abastecimiento de materiales de oficina por parte de los departamento de una empresa, el mismo automáticamente genera una solicitud de compra con los materiales que soliciten los empleados y no haya en el almacén.
